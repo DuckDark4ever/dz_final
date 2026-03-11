@@ -8,5 +8,6 @@ from analyzers.traffic_analyzer import TrafficAnalyzer
 __all__ = [
     'BaseAnalyzer',
     'CVSSAnalyzer',
-    'TrafficAnalyzer'
+    'TrafficAnalyzer',
+    'SuricataPandasAnalyzer'
 ]
