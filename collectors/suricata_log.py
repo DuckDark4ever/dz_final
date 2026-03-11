@@ -1,6 +1,8 @@
 """
-Коллектор для парсинга логов Suricata в формате EVE JSON (JSON Lines).
-Читает файл построчно, фильтрует события (alert, dns) и нормализует их в объекты SuricataEvent.
+Коллектор для парсинга логов Suricata в формате EVE JSON.
+Поддерживает оба формата:
+- JSON Lines (NDJSON) — один JSON-объект на строку
+- JSON Array — массив JSON-объектов в квадратных скобках
 """
 import json
 from pathlib import Path
@@ -21,7 +23,8 @@ class SuricataLogCollector(BaseCollector):
     Коллектор для анализа EVE JSON логов Suricata.
     
     Особенности:
-    - Построчное чтение (поддержка JSON Lines)
+    - Авто-детект формата (NDJSON или JSON Array)
+    - Построчное чтение для NDJSON (поддержка больших файлов)
     - Защита от слишком больших файлов (OOM prevention)
     - Фильтрация только релевантных типов событий (alert, dns)
     - Нормализация полей в структурированную модель SuricataEvent
@@ -49,6 +52,10 @@ class SuricataLogCollector(BaseCollector):
         
         # Проверяем размер файла
         self._check_file_size()
+        
+        # Определяем формат файла
+        self.file_format = self._detect_format()
+        self.logger.info(f"Формат файла: {self.file_format}")
     
     def _check_file_size(self) -> None:
         """
@@ -69,9 +76,35 @@ class SuricataLogCollector(BaseCollector):
         
         self.logger.debug(f"Размер файла: {file_size_mb:.1f} МБ")
     
+    def _detect_format(self) -> str:
+        """
+        Определяет формат JSON файла (NDJSON или Array).
+        
+        Returns:
+            'ndjson' или 'array'
+        """
+        try:
+            with open(self.file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                # Читаем первый непустой символ
+                for char in f.read(1024):
+                    if char.isspace():
+                        continue
+                    if char == '[':
+                        return 'array'
+                    elif char == '{':
+                        return 'ndjson'
+                
+                # Если файл пустой или не удалось определить
+                self.logger.warning("Не удалось определить формат файла, предполагаем NDJSON")
+                return 'ndjson'
+                
+        except Exception as e:
+            self.logger.warning(f"Ошибка при определении формата: {e}, используем NDJSON")
+            return 'ndjson'
+    
     def _line_generator(self) -> Generator[str, None, None]:
         """
-        Генератор для безопасного построчного чтения файла.
+        Генератор для безопасного построчного чтения файла (NDJSON формат).
         Использует генератор для экономии памяти.
         
         Yields:
@@ -95,6 +128,38 @@ class SuricataLogCollector(BaseCollector):
             raise
         
         self.logger.debug(f"Прочитано строк в файле: {line_count}")
+    
+    def _array_generator(self) -> Generator[Dict[str, Any], None, None]:
+        """
+        Генератор для чтения JSON Array формата.
+        Загружает весь массив в память (только для небольших файлов).
+        
+        Yields:
+            JSON-объект из массива
+        """
+        try:
+            with open(
+                self.file_path,
+                'r',
+                encoding='utf-8',
+                errors='ignore'
+            ) as f:
+                data = json.load(f)
+                
+                if not isinstance(data, list):
+                    self.logger.error("Файл не является JSON массивом")
+                    return
+                
+                for item in data:
+                    if isinstance(item, dict):
+                        yield item
+                        
+        except json.JSONDecodeError as e:
+            self.logger.error(f"Ошибка парсинга JSON массива: {e}")
+            raise
+        except IOError as e:
+            self.logger.error(f"Ошибка чтения файла: {e}")
+            raise
     
     def _parse_line(self, line: str, line_num: int) -> Optional[Dict[str, Any]]:
         """
@@ -162,15 +227,13 @@ class SuricataLogCollector(BaseCollector):
         
         return event
     
-    def collect(self) -> List[RawEvent]:
+    def _process_ndjson(self) -> List[SuricataEvent]:
         """
-        Основной метод сбора данных из лога Suricata.
+        Обрабатывает файл в формате NDJSON.
         
         Returns:
-            Список нормализованных событий (только alert и dns)
+            Список нормализованных событий
         """
-        self.logger.info(f"Начало сбора данных из: {self.file_path}")
-        
         events = []
         processed = 0
         filtered = 0
@@ -204,12 +267,73 @@ class SuricataLogCollector(BaseCollector):
         
         # Итоговая статистика
         self.logger.info(
-            f"Сбор данных завершен. Статистика:\n"
+            f"Сбор данных завершен (NDJSON). Статистика:\n"
             f"  Всего обработано строк: {processed}\n"
             f"  Отфильтровано (неинтересные типы): {filtered}\n"
             f"  Ошибок парсинга: {errors}\n"
             f"  Получено событий: {len(events)}"
         )
+        
+        return events
+    
+    def _process_array(self) -> List[SuricataEvent]:
+        """
+        Обрабатывает файл в формате JSON Array.
+        
+        Returns:
+            Список нормализованных событий
+        """
+        events = []
+        processed = 0
+        filtered = 0
+        errors = 0
+        
+        # Обрабатываем каждый объект из массива
+        for item_num, raw_data in enumerate(self._array_generator(), 1):
+            processed += 1
+            
+            # Проверяем тип события
+            event_type = raw_data.get('event_type')
+            if event_type not in self.INTERESTING_EVENT_TYPES:
+                self.logger.debug(f"Пропущено событие типа: {event_type}")
+                filtered += 1
+                continue
+            
+            # Нормализуем событие
+            event = self._normalize_event(raw_data)
+            if event:
+                events.append(event)
+                self.logger.debug(
+                    f"Добавлено событие: {event.event_type} | "
+                    f"{event.src_ip or '-'} -> {event.dest_ip or '-'}"
+                )
+        
+        # Итоговая статистика
+        self.logger.info(
+            f"Сбор данных завершен (JSON Array). Статистика:\n"
+            f"  Всего обработано объектов: {processed}\n"
+            f"  Отфильтровано (неинтересные типы): {filtered}\n"
+            f"  Ошибок парсинга: {errors}\n"
+            f"  Получено событий: {len(events)}"
+        )
+        
+        return events
+    
+    def collect(self) -> List[RawEvent]:
+        """
+        Основной метод сбора данных из лога Suricata.
+        Автоматически выбирает метод обработки в зависимости от формата.
+        
+        Returns:
+            Список нормализованных событий (только alert и dns)
+        """
+        self.logger.info(f"Начало сбора данных из: {self.file_path}")
+        
+        # Выбираем метод обработки в зависимости от формата
+        if self.file_format == 'array':
+            events = self._process_array()
+        else:
+            events = self._process_ndjson()
         
         # Детальная разбивка по типам
         if events and self.logger.isEnabledFor(10):  # DEBUG level
@@ -262,6 +386,7 @@ if __name__ == "__main__":
         events = collector.collect()
         
         print(f"\nРезультаты тестирования:")
+        print(f"  Формат файла: {collector.file_format}")
         print(f"  Получено событий: {len(events)}")
         
         # Показываем первые 3 события для примера
