@@ -7,7 +7,6 @@ import time
 from typing import List, Optional, Dict, Any
 from datetime import datetime
 import requests
-from urllib.parse import urljoin
 
 from responders.base import BaseResponder
 from models.alert import Alert
@@ -36,13 +35,17 @@ class TelegramNotifier(BaseResponder):
     
     Особенности:
     - Форматирование Markdown/HTML для красивого отображения
+    - Экранирование специальных символов Markdown (безопасность)
     - Повторные попытки при временных ошибках
     - Защита от rate limiting (30 сообщений/сек)
     - Эмодзи для визуальной индикации критичности
     """
     
-    # Базовый URL для Telegram Bot API
-    BASE_URL = "https://api.telegram.org/bot{token}/"
+    # Константы для настройки поведения
+    RATE_LIMIT_BUFFER = 25  # сообщений/сек (оставляем запас от лимита 30)
+    MAX_SEND_RETRIES = 3     # максимальное количество попыток отправки
+    RETRY_BASE_DELAY = 2      # базовая задержка для экспоненциальной retry (сек)
+    SEND_TIMEOUT = 15         # таймаут HTTP запроса (сек)
     
     # Эмодзи для разных уровней критичности
     SEVERITY_EMOJIS = {
@@ -51,6 +54,9 @@ class TelegramNotifier(BaseResponder):
         'MEDIUM': '🟡',     # Желтый круг
         'LOW': '🔵'         # Синий круг
     }
+    
+    # Символы, требующие экранирования в Markdown v2
+    MARKDOWN_ESCAPE_CHARS = r'_*[]()~`>#+-=|{}.!'
     
     def __init__(self, dry_run: bool = False):
         """
@@ -74,7 +80,6 @@ class TelegramNotifier(BaseResponder):
         # Статистика для rate limiting
         self.message_count = 0
         self.last_reset_time = time.time()
-        self.max_messages_per_second = 25  # Оставляем запас (лимит 30)
         
         self.session = self._create_session()
         
@@ -120,10 +125,31 @@ class TelegramNotifier(BaseResponder):
         })
         return session
     
+    def _escape_markdown(self, text: str) -> str:
+        """
+        Экранирует специальные символы Markdown v2 для безопасного отображения.
+        
+        Telegram Markdown v2 требует экранирования следующих символов:
+        _ * [ ] ( ) ~ ` > # + - = | { } . !
+        
+        Args:
+            text: Исходный текст (может содержать спецсимволы)
+        
+        Returns:
+            Текст с экранированными символами
+        """
+        result = []
+        for char in text:
+            if char in self.MARKDOWN_ESCAPE_CHARS:
+                result.append('\\' + char)
+            else:
+                result.append(char)
+        return ''.join(result)
+    
     def _format_alert_message(self, alert: Alert) -> str:
         """
         Форматирует алерт в красивое сообщение для Telegram.
-        Использует Markdown для форматирования.
+        Использует Markdown с экранированием спецсимволов.
         
         Args:
             alert: Алерт для форматирования
@@ -133,17 +159,23 @@ class TelegramNotifier(BaseResponder):
         """
         emoji = self.SEVERITY_EMOJIS.get(alert.severity, '⚪')
         
+        # Экранируем все пользовательские данные
+        safe_title = self._escape_markdown(alert.title)
+        safe_indicator = self._escape_markdown(alert.indicator)
+        safe_description = self._escape_markdown(alert.description)
+        safe_source = self._escape_markdown(alert.source)
+        
         # Заголовок с эмодзи и уровнем критичности
         message = [
-            f"{emoji} *{alert.title}*",
+            f"{emoji} *{safe_title}*",
             f"`{alert.severity}`",
             "",
-            f"*Источник:* {alert.source}",
+            f"*Источник:* {safe_source}",
             f"*Время:* {alert.timestamp.strftime('%Y-%m-%d %H:%M:%S')}",
-            f"*Индикатор:* `{alert.indicator}`",
+            f"*Индикатор:* `{safe_indicator}`",
             "",
             f"*Описание:*",
-            f"{alert.description}"
+            f"{safe_description}"
         ]
         
         # Добавляем дополнительную информацию, если есть
@@ -153,19 +185,25 @@ class TelegramNotifier(BaseResponder):
             
             # Форматируем сырые данные красиво
             for key, value in alert.raw_data.items():
-                if key in ['domain', 'query_count', 'unique_sources', 'entropy']:
+                if key in ['domain', 'query_count', 'unique_sources', 'entropy', 
+                          'cvss', 'malicious', 'suspicious']:
                     key_pretty = key.replace('_', ' ').title()
+                    safe_key = self._escape_markdown(key_pretty)
+                    
                     if isinstance(value, float):
-                        message.append(f"  • {key_pretty}: `{value:.2f}`")
+                        message.append(f"  • {safe_key}: `{value:.2f}`")
                     else:
-                        message.append(f"  • {key_pretty}: `{value}`")
+                        safe_value = self._escape_markdown(str(value))
+                        message.append(f"  • {safe_key}: `{safe_value}`")
         
         # Добавляем информацию о действии, если есть
         if alert.action_taken:
+            safe_action = self._escape_markdown(alert.action_taken)
             message.append("")
-            message.append(f"*Действие:* {alert.action_taken}")
+            message.append(f"*Действие:* {safe_action}")
             if alert.action_details:
-                message.append(f"`{alert.action_details}`")
+                safe_details = self._escape_markdown(alert.action_details)
+                message.append(f"`{safe_details}`")
         
         return "\n".join(message)
     
@@ -182,7 +220,7 @@ class TelegramNotifier(BaseResponder):
             self.last_reset_time = current_time
         
         # Проверяем превышение лимита
-        if self.message_count >= self.max_messages_per_second:
+        if self.message_count >= self.RATE_LIMIT_BUFFER:
             sleep_time = 1.0 - (current_time - self.last_reset_time)
             if sleep_time > 0:
                 self.logger.warning(
@@ -192,13 +230,12 @@ class TelegramNotifier(BaseResponder):
                 self.message_count = 0
                 self.last_reset_time = time.time()
     
-    def _send_with_retry(self, message: str, max_retries: int = 3) -> bool:
+    def _send_with_retry(self, message: str) -> bool:
         """
         Отправляет сообщение с повторными попытками при ошибках.
         
         Args:
             message: Текст сообщения в Markdown
-            max_retries: Максимальное количество попыток
         
         Returns:
             True если отправка успешна, False если все попытки исчерпаны
@@ -207,21 +244,22 @@ class TelegramNotifier(BaseResponder):
             self.logger.info(f"[DRY RUN] Сообщение для отправки:\n{message}")
             return True
         
-        url = urljoin(self.BASE_URL.format(token=self.token), "sendMessage")
+        # Исправлено: f-string для формирования URL без пробелов
+        url = f"https://api.telegram.org/bot{self.token}/sendMessage"
         
         payload = {
             'chat_id': self.chat_id,
             'text': message,
-            'parse_mode': 'Markdown',
+            'parse_mode': 'MarkdownV2',  # Используем MarkdownV2 (более строгий)
             'disable_web_page_preview': True
         }
         
-        for attempt in range(max_retries):
+        for attempt in range(self.MAX_SEND_RETRIES):
             try:
                 # Проверяем rate limit
                 self._check_rate_limit()
                 
-                response = self.session.post(url, json=payload, timeout=10)
+                response = self.session.post(url, json=payload, timeout=self.SEND_TIMEOUT)
                 
                 # Увеличиваем счетчик сообщений
                 self.message_count += 1
@@ -237,6 +275,19 @@ class TelegramNotifier(BaseResponder):
                     self.logger.error("Неверный токен Telegram бота")
                     raise TelegramAuthError("Invalid token")
                 
+                # Проверка на ошибки форматирования Markdown
+                if response.status_code == 400:
+                    error_data = response.json()
+                    if 'can\'t parse entities' in error_data.get('description', ''):
+                        self.logger.error(
+                            f"Ошибка парсинга Markdown. "
+                            f"Проблемное сообщение (первые 200 символов): {message[:200]}"
+                        )
+                        # Пробуем отправить без форматирования как fallback
+                        payload['parse_mode'] = None
+                        self.logger.info("Повторная отправка без Markdown форматирования")
+                        continue
+                
                 response.raise_for_status()
                 
                 # Проверяем успешность по содержимому ответа
@@ -248,25 +299,29 @@ class TelegramNotifier(BaseResponder):
                     self.logger.error(f"Telegram API вернул ошибку: {result}")
                     
             except requests.exceptions.Timeout:
-                self.logger.warning(f"Таймаут при отправке (попытка {attempt + 1}/{max_retries})")
+                self.logger.warning(
+                    f"Таймаут при отправке (попытка {attempt + 1}/{self.MAX_SEND_RETRIES})"
+                )
             except requests.exceptions.ConnectionError:
-                self.logger.warning(f"Ошибка соединения (попытка {attempt + 1}/{max_retries})")
+                self.logger.warning(
+                    f"Ошибка соединения (попытка {attempt + 1}/{self.MAX_SEND_RETRIES})"
+                )
             except requests.exceptions.HTTPError as e:
                 self.logger.error(f"HTTP ошибка: {e}")
-                if attempt == max_retries - 1:
+                if attempt == self.MAX_SEND_RETRIES - 1:
                     return False
             except Exception as e:
                 self.logger.error(f"Неожиданная ошибка: {e}")
-                if attempt == max_retries - 1:
+                if attempt == self.MAX_SEND_RETRIES - 1:
                     return False
             
             # Экспоненциальная задержка между попытками
-            if attempt < max_retries - 1:
-                sleep_time = (attempt + 1) * 2
+            if attempt < self.MAX_SEND_RETRIES - 1:
+                sleep_time = (attempt + 1) * self.RETRY_BASE_DELAY
                 self.logger.info(f"Повторная попытка через {sleep_time}с")
                 time.sleep(sleep_time)
         
-        self.logger.error(f"Не удалось отправить сообщение после {max_retries} попыток")
+        self.logger.error(f"Не удалось отправить сообщение после {self.MAX_SEND_RETRIES} попыток")
         return False
     
     def send_test_message(self) -> bool:
@@ -281,10 +336,10 @@ class TelegramNotifier(BaseResponder):
             severity="LOW",
             source="telegram_notifier",
             description="Это тестовое сообщение для проверки работы Telegram бота.",
-            indicator="test",
+            indicator="test_indicator_123",
             raw_data={
-                'test_field': 'значение',
-                'test_number': 123
+                'test_field': 'значение с *звездочкой* и _подчеркиванием_',
+                'test_number': 123.45
             }
         )
         
@@ -419,7 +474,7 @@ if __name__ == "__main__":
                     severity="LOW",
                     source="manual",
                     description=args.message,
-                    indicator="manual"
+                    indicator="manual_input"
                 )
                 notifier.respond([custom_alert])
             else:
@@ -439,15 +494,15 @@ if __name__ == "__main__":
             
             test_alerts = [
                 Alert(
-                    title="Критическая уязвимость",
+                    title="Критическая уязвимость с *звездочкой*",
                     severity="CRITICAL",
                     source="vulners",
-                    description="Найдена уязвимость с CVSS 9.8 в nginx 1.18.0",
+                    description="Найдена уязвимость с CVSS 9.8 в nginx 1.18.0 [CVE-2024-1234]",
                     indicator="CVE-2024-1234",
                     raw_data={'cvss': 9.8, 'affected': 'nginx 1.18.0'}
                 ),
                 Alert(
-                    title="Подозрительный DNS трафик",
+                    title="Подозрительный DNS трафик (c2-malware.com)",
                     severity="HIGH",
                     source="traffic_analyzer",
                     description="Аномально высокая частота запросов к c2-malware.com",
@@ -455,7 +510,7 @@ if __name__ == "__main__":
                     raw_data={'query_count': 150, 'unique_sources': 5}
                 ),
                 Alert(
-                    title="Потенциально опасный IP",
+                    title="Потенциально опасный IP (185.130.5.133)",
                     severity="MEDIUM",
                     source="virustotal",
                     description="IP обнаружен в 3 черных списках",
@@ -463,11 +518,11 @@ if __name__ == "__main__":
                     raw_data={'malicious': 3, 'suspicious': 2}
                 ),
                 Alert(
-                    title="Информационное сообщение",
+                    title="Информационное сообщение [OK]",
                     severity="LOW",
                     source="system",
-                    description="Плановое сканирование завершено",
-                    indicator="system"
+                    description="Плановое сканирование завершено (успешно)",
+                    indicator="system_scan_123"
                 )
             ]
             
