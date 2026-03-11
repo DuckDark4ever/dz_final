@@ -3,16 +3,18 @@
 Реализует кэширование, retry логику и защиту от rate limiting.
 """
 import time
-from typing import List, Dict, Any, Optional, Union
+from typing import List, Dict, Any, Optional, Tuple
 from dataclasses import dataclass, field
 from functools import lru_cache
-from urllib.parse import urljoin
+from urllib.parse import quote, urljoin
+from collections import OrderedDict
 
 import requests
 from tenacity import (
     retry,
     stop_after_attempt,
     wait_exponential,
+    wait_fixed,
     retry_if_exception_type,
     before_sleep_log
 )
@@ -41,33 +43,85 @@ class VirusTotalAuthError(VirusTotalAPIError):
 @dataclass
 class VTCache:
     """
-    Простой кэш в памяти для результатов VirusTotal.
-    Используем dataclass для автоматического создания методов.
+    Кэш в памяти для результатов VirusTotal с ограничением размера (LRU).
+    Используем OrderedDict для эффективной реализации LRU.
     """
-    cache: Dict[str, ThreatIntelEvent] = field(default_factory=dict)
+    maxsize: int = 1000  # Максимальное количество записей в кэше
+    cache: OrderedDict = field(default_factory=OrderedDict)
     hits: int = 0
     misses: int = 0
     
-    def get(self, key: str) -> Optional[ThreatIntelEvent]:
-        """Получить значение из кэша с подсчетом статистики."""
+    def _make_key(self, indicator: str, indicator_type: str) -> str:
+        """
+        Создает составной ключ для кэша.
+        
+        Args:
+            indicator: Строка индикатора
+            indicator_type: Тип индикатора
+        
+        Returns:
+            Составной ключ вида "type:indicator"
+        """
+        return f"{indicator_type}:{indicator}"
+    
+    def get(self, indicator: str, indicator_type: str) -> Optional[ThreatIntelEvent]:
+        """
+        Получить значение из кэша с подсчетом статистики.
+        Реализует LRU - при обращении элемент перемещается в конец.
+        
+        Args:
+            indicator: Строка индикатора
+            indicator_type: Тип индикатора
+        
+        Returns:
+            Значение из кэша или None
+        """
+        key = self._make_key(indicator, indicator_type)
+        
         if key in self.cache:
+            # LRU: перемещаем в конец (самый свежий)
+            self.cache.move_to_end(key)
             self.hits += 1
             return self.cache[key]
+        
         self.misses += 1
         return None
     
-    def set(self, key: str, value: ThreatIntelEvent) -> None:
-        """Сохранить значение в кэш."""
+    def set(self, indicator: str, indicator_type: str, value: ThreatIntelEvent) -> None:
+        """
+        Сохранить значение в кэш с учетом максимального размера.
+        
+        Args:
+            indicator: Строка индикатора
+            indicator_type: Тип индикатора
+            value: Значение для сохранения
+        """
+        key = self._make_key(indicator, indicator_type)
+        
+        # Добавляем или обновляем элемент
         self.cache[key] = value
+        self.cache.move_to_end(key)
+        
+        # Проверяем превышение размера
+        if len(self.cache) > self.maxsize:
+            # Удаляем самый старый элемент (первый в OrderedDict)
+            removed_key, removed_value = self.cache.popitem(last=False)
+            logger.debug(f"Кэш переполнен, удален элемент: {removed_key}")
     
-    def stats(self) -> Dict[str, int]:
-        """Вернуть статистику использования кэша."""
+    def stats(self) -> Dict[str, Any]:
+        """
+        Вернуть статистику использования кэша.
+        
+        Returns:
+            Словарь со статистикой
+        """
+        total = self.hits + self.misses
         return {
             'size': len(self.cache),
+            'maxsize': self.maxsize,
             'hits': self.hits,
             'misses': self.misses,
-            'hit_rate': round(self.hits / (self.hits + self.misses) * 100, 2) 
-                        if (self.hits + self.misses) > 0 else 0
+            'hit_rate': round(self.hits / total * 100, 2) if total > 0 else 0
         }
 
 
@@ -76,13 +130,15 @@ class VirusTotalCollector(BaseCollector):
     Коллектор для VirusTotal API v3.
     
     Особенности:
-    - Кэширование результатов в памяти
+    - Кэширование результатов в памяти (LRU, ограниченный размер)
     - Retry с экспоненциальной задержкой для rate limiting
+    - Защита от rate limiting Public API (4 запроса/минуту)
+    - URL-кодирование индикаторов
     - Проверка наличия API ключа перед запросом
     - Нормализация ответов в ThreatIntelEvent
-    - Статистика использования кэша
     """
     
+    # ВАЖНО: Никаких пробелов в URL!
     BASE_URL = "https://www.virustotal.com/api/v3/"
     
     # Типы индикаторов и соответствующие эндпоинты
@@ -93,18 +149,28 @@ class VirusTotalCollector(BaseCollector):
         'file': 'files/{indicator}'  # Для хэшей
     }
     
-    def __init__(self):
-        """Инициализация коллектора VirusTotal."""
+    # Public API лимит: 4 запроса в минуту
+    # Используем 16 секунд для запаса (60/4 = 15, берем 16)
+    REQUEST_DELAY = 16
+    
+    def __init__(self, max_cache_size: int = 1000):
+        """
+        Инициализация коллектора VirusTotal.
+        
+        Args:
+            max_cache_size: Максимальный размер кэша в памяти
+        """
         super().__init__("virustotal")
         self.api_key = Config.get_virustotal_api_key()
         self.session = self._create_session()
-        self.cache = VTCache()
+        self.cache = VTCache(maxsize=max_cache_size)
         
         # Проверяем наличие API ключа при инициализации
         self._check_api_key()
         
         self.logger.info("VirusTotal коллектор инициализирован")
         self.logger.info(f"API ключ: {'установлен' if self.api_key else 'ОТСУТСТВУЕТ'}")
+        self.logger.info(f"Максимальный размер кэша: {max_cache_size}")
     
     def _check_api_key(self) -> None:
         """
@@ -128,7 +194,8 @@ class VirusTotalCollector(BaseCollector):
         session = requests.Session()
         session.headers.update({
             'x-apikey': self.api_key,
-            'Accept': 'application/json'
+            'Accept': 'application/json',
+            'User-Agent': 'ThreatDetector/1.0'
         })
         return session
     
@@ -145,27 +212,30 @@ class VirusTotalCollector(BaseCollector):
         Raises:
             ValueError: Если тип не удалось определить
         """
-        # Простая эвристика для определения типа
-        if '.' in indicator and not indicator.replace('.', '').isdigit():
-            # Содержит точки и не состоит только из цифр -> вероятно домен
-            if ' ' not in indicator and '/' not in indicator:
-                return 'domain'
-        
-        if indicator.count('.') == 3 and all(
-            part.isdigit() and 0 <= int(part) <= 255 
-            for part in indicator.split('.') 
-            if part.isdigit()
-        ):
-            return 'ip'
-        
-        if indicator.startswith(('http://', 'https://')):
+        # Нормализуем индикатор (убираем протокол для URL)
+        clean_indicator = indicator.lower().strip()
+        if clean_indicator.startswith(('http://', 'https://')):
             return 'url'
         
+        # Проверка на IP-адрес (IPv4)
+        ip_parts = clean_indicator.split('.')
+        if len(ip_parts) == 4 and all(part.isdigit() for part in ip_parts):
+            if all(0 <= int(part) <= 255 for part in ip_parts):
+                return 'ip'
+        
+        # Проверка на домен (содержит точки, но не начинается с http)
+        if '.' in clean_indicator and not clean_indicator[0].isdigit():
+            # Простая проверка: нет пробелов и спецсимволов
+            if all(c.isalnum() or c in '.-_' for c in clean_indicator):
+                return 'domain'
+        
         # Хэши (MD5, SHA1, SHA256) обычно 32-64 символа, hex
-        if len(indicator) in (32, 40, 64) and all(c in '0123456789abcdefABCDEF' for c in indicator):
+        if len(clean_indicator) in (32, 40, 64) and all(
+            c in '0123456789abcdef' for c in clean_indicator
+        ):
             return 'file'
         
-        # По умолчанию считаем доменом
+        # Если ничего не подошло, пробуем как домен (для обратной совместимости)
         self.logger.debug(f"Не удалось определить тип индикатора: {indicator}, используем 'domain'")
         return 'domain'
     
@@ -192,9 +262,12 @@ class VirusTotalCollector(BaseCollector):
         
         Raises:
             VirusTotalRateLimitError: При превышении лимита запросов
+            VirusTotalAuthError: При ошибке аутентификации
             VirusTotalAPIError: При других ошибках API
         """
-        url = urljoin(self.BASE_URL, endpoint)
+        # Убираем возможные пробелы из BASE_URL (защита от опечаток)
+        base_url = self.BASE_URL.strip()
+        url = urljoin(base_url, endpoint)
         
         self.logger.debug(f"Запрос к API: {url}")
         
@@ -237,13 +310,12 @@ class VirusTotalCollector(BaseCollector):
         Returns:
             Нормализованное событие
         """
-        # Извлекаем статистику анализа, если доступна
+        # Извлекаем статистику анализа
         attributes = raw_data.get('data', {}).get('attributes', {})
-        last_analysis_stats = attributes.get('last_analysis_stats', {})
+        if not attributes:
+            attributes = raw_data.get('attributes', {})
         
-        # Для IP и доменов может быть другая структура
-        if not last_analysis_stats and 'attributes' in raw_data:
-            last_analysis_stats = raw_data['attributes'].get('last_analysis_stats', {})
+        last_analysis_stats = attributes.get('last_analysis_stats', {})
         
         event = ThreatIntelEvent(
             source='virustotal',
@@ -279,12 +351,6 @@ class VirusTotalCollector(BaseCollector):
         """
         self.logger.debug(f"Проверка индикатора: {indicator}")
         
-        # Проверяем кэш
-        cached = self.cache.get(indicator)
-        if cached:
-            self.logger.debug(f"Найдено в кэше: {indicator}")
-            return cached
-        
         # Определяем тип индикатора
         try:
             indicator_type = self._determine_indicator_type(indicator)
@@ -292,13 +358,21 @@ class VirusTotalCollector(BaseCollector):
             self.logger.error(f"Не удалось определить тип индикатора {indicator}: {e}")
             return None
         
-        # Формируем эндпоинт
+        # Проверяем кэш с составным ключом
+        cached = self.cache.get(indicator, indicator_type)
+        if cached:
+            self.logger.debug(f"Найдено в кэше: {indicator} (тип: {indicator_type})")
+            return cached
+        
+        # Формируем эндпоинт с URL-кодированием
         endpoint_template = self.INDICATOR_ENDPOINTS.get(indicator_type)
         if not endpoint_template:
             self.logger.error(f"Неподдерживаемый тип индикатора: {indicator_type}")
             return None
         
-        endpoint = endpoint_template.format(indicator=indicator)
+        # URL-кодируем индикатор для безопасности
+        encoded_indicator = quote(indicator, safe='')
+        endpoint = endpoint_template.format(indicator=encoded_indicator)
         
         # Выполняем запрос
         try:
@@ -308,19 +382,18 @@ class VirusTotalCollector(BaseCollector):
             event = self._normalize_response(indicator, indicator_type, raw_data)
             
             # Сохраняем в кэш
-            self.cache.set(indicator, event)
+            self.cache.set(indicator, indicator_type, event)
             
             # Защита от rate limiting (Public API: 4 запроса/минуту)
-            # Добавляем паузу между запросами
-            time.sleep(15)  # 60 секунд / 4 запроса = 15 секунд
+            # Пауза ТОЛЬКО после успешного запроса к API
+            self.logger.debug(f"Пауза {self.REQUEST_DELAY}с для соблюдения rate limits")
+            time.sleep(self.REQUEST_DELAY)
             
             return event
             
         except VirusTotalRateLimitError:
             # Если rate limit, ждем дольше и пробуем еще раз (tenacity сделает retry)
-            self.logger.warning(f"Rate limit для {indicator}, повтор через 60с")
-            time.sleep(60)
-            # Пробрасываем исключение для retry
+            self.logger.warning(f"Rate limit для {indicator}, повтор с экспоненциальной задержкой")
             raise
         except VirusTotalAuthError:
             # Ошибка аутентификации - не retry
@@ -346,7 +419,9 @@ class VirusTotalCollector(BaseCollector):
         successful = 0
         failed = 0
         
-        for indicator in indicators:
+        for i, indicator in enumerate(indicators, 1):
+            self.logger.info(f"Прогресс: {i}/{len(indicators)} - проверка {indicator}")
+            
             event = self.check_indicator(indicator)
             if event:
                 events.append(event)
@@ -355,21 +430,25 @@ class VirusTotalCollector(BaseCollector):
                 failed += 1
         
         # Итоговая статистика
+        cache_stats = self.cache.stats()
         self.logger.info(
             f"Проверка индикаторов завершена:\n"
             f"  Всего: {len(indicators)}\n"
             f"  Успешно: {successful}\n"
             f"  Ошибок: {failed}\n"
-            f"  Кэш: {self.cache.stats()}"
+            f"  Кэш: {cache_stats}"
         )
         
         return events
 
 
 # Функция-фабрика для создания коллектора
-def create_collector() -> VirusTotalCollector:
+def create_collector(max_cache_size: int = 1000) -> VirusTotalCollector:
     """
     Создает и возвращает экземпляр коллектора VirusTotal.
+    
+    Args:
+        max_cache_size: Максимальный размер кэша
     
     Returns:
         Настроенный коллектор
@@ -377,14 +456,14 @@ def create_collector() -> VirusTotalCollector:
     Raises:
         VirusTotalAuthError: Если API ключ отсутствует
     """
-    return VirusTotalCollector()
+    return VirusTotalCollector(max_cache_size=max_cache_size)
 
 
 # Блок для самостоятельного тестирования модуля
 if __name__ == "__main__":
     """
     Тестирование коллектора:
-    python -m collectors.virustotal 8.8.8.8 google.com
+    python -m collectors.virustotal 8.8.8.8 google.com https://example.com
     """
     import sys
     
@@ -399,7 +478,8 @@ if __name__ == "__main__":
     indicators = sys.argv[1:]
     
     try:
-        collector = VirusTotalCollector()
+        # Создаем коллектор с маленьким кэшем для тестирования LRU
+        collector = VirusTotalCollector(max_cache_size=5)
         events = collector.collect(indicators)
         
         print(f"\nРезультаты проверки:")
