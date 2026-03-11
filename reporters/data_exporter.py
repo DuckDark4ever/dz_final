@@ -264,8 +264,8 @@ class DataExporter(BaseReporter):
         )
         
         return results
-
- def generate(self, alerts: List[Alert], output_dir: str, 
+    
+    def generate(self, alerts: List[Alert], output_dir: str, 
                  events: Optional[List[RawEvent]] = None) -> List[str]:
         """
         Обёртка над export() для соответствия интерфейсу BaseReporter.
@@ -289,7 +289,8 @@ class DataExporter(BaseReporter):
         for fmt_file_list in results.values():
             files.extend(fmt_file_list)
         
-        return files
+        return files  # ← Конец метода generate() и класса DataExporter
+
 
 # Функция-фабрика
 def create_reporter(pretty_json: bool = True) -> DataExporter:
