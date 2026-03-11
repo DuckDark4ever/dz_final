@@ -265,6 +265,31 @@ class DataExporter(BaseReporter):
         
         return results
 
+ def generate(self, alerts: List[Alert], output_dir: str, 
+                 events: Optional[List[RawEvent]] = None) -> List[str]:
+        """
+        Обёртка над export() для соответствия интерфейсу BaseReporter.
+        
+        Args:
+            alerts: Список алертов
+            output_dir: Директория для сохранения
+            events: Сырые события (опционально, если None — экспортируются только алерты)
+        
+        Returns:
+            Список путей к сгенерированным файлам
+        """
+        # Если events не переданы, экспортируем только алерты
+        events_to_export = events if events is not None else []
+        
+        # Вызываем основной метод export
+        results = self.export(alerts, events_to_export, output_dir)
+        
+        # Возвращаем плоский список путей (как требует интерфейс)
+        files = []
+        for fmt_file_list in results.values():
+            files.extend(fmt_file_list)
+        
+        return files
 
 # Функция-фабрика
 def create_reporter(pretty_json: bool = True) -> DataExporter:
