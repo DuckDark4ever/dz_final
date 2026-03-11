@@ -24,6 +24,7 @@ from collectors.vulners import VulnersCollector
 # Анализаторы
 from analyzers.cvss_analyzer import CVSSAnalyzer
 from analyzers.traffic_analyzer import TrafficAnalyzer
+from analyzers.suricata_pandas import SuricataPandasAnalyzer
 
 # Responders
 from responders.console_logger import ConsoleLogger
@@ -109,7 +110,8 @@ class ThreatDetector:
         
         self.analyzers = [
             CVSSAnalyzer(),
-            TrafficAnalyzer()
+            TrafficAnalyzer(),
+            SuricataPandasAnalyzer(),
         ]
         
         self.logger.info(f"  → Анализаторов зарегистрировано: {len(self.analyzers)}")
