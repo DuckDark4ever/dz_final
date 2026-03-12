@@ -1,6 +1,5 @@
 """
 Модуль для имитации реагирования через вывод в консоль.
-Соответствует требованию ТЗ о простом реагировании (блокировка или уведомление).
 """
 from typing import List
 from datetime import datetime
@@ -128,7 +127,7 @@ class ConsoleLogger(BaseResponder):
     
     def respond(self, alerts: List[Alert]) -> None:
         """
-        Реагирует на список алертов через консоль.
+        Реагирует на список алертов через консоль с дедупликацией по IP.
         
         Args:
             alerts: Список обнаруженных угроз
@@ -138,25 +137,102 @@ class ConsoleLogger(BaseResponder):
             print(self._colorize("\n✅ Угроз не обнаружено. Система чиста.", "INFO"))
             return
         
-        self.logger.info(f"Начало реагирования на {len(alerts)} алертов")
+        # Дедупликация по IP
+        self.logger.info(f"Начало дедупликации алертов, получено: {len(alerts)}")
+        
+        # Группируем по IP
+        ip_alerts = {}
+        
+        for alert in alerts:
+            # Пытаемся получить IP из разных источников
+            src_ip = None
+            if alert.raw_data and isinstance(alert.raw_data, dict):
+                src_ip = alert.raw_data.get('src_ip')
+            
+            if not src_ip and alert.indicator:
+                indicator = alert.indicator
+                if indicator.count('.') == 3 and all(part.isdigit() for part in indicator.split('.')):
+                    src_ip = indicator
+            
+            if not src_ip:
+                src_ip = "unknown"
+            
+            if src_ip not in ip_alerts:
+                ip_alerts[src_ip] = []
+            ip_alerts[src_ip].append(alert)
+        
+        # Веса для severity
+        severity_weight = {
+            'CRITICAL': 4,
+            'HIGH': 3,
+            'MEDIUM': 2,
+            'LOW': 1
+        }
+        
+        # Для каждого IP выбираем самый критичный алерт
+        deduplicated = []
+        ip_stats = {}
+        
+        for src_ip, alerts_list in ip_alerts.items():
+            if not alerts_list:
+                continue
+            
+            # Выбираем алерт с наивысшим весом severity
+            best_alert = max(alerts_list, 
+                           key=lambda a: severity_weight.get(a.severity, 0))
+            
+            # Сохраняем статистику для логирования
+            ip_stats[src_ip] = {
+                'total': len(alerts_list),
+                'best_severity': best_alert.severity,
+                'severities': list(set(a.severity for a in alerts_list))
+            }
+            
+            # Добавляем информацию о количестве в raw_data
+            if best_alert.raw_data is None:
+                best_alert.raw_data = {}
+            best_alert.raw_data['total_alerts_for_ip'] = len(alerts_list)
+            best_alert.raw_data['unique_severities'] = list(set(a.severity for a in alerts_list))
+            
+            deduplicated.append(best_alert)
+        
+        self.logger.info(f"Дедупликация завершена: {len(alerts)} -> {len(deduplicated)} алертов")
+        
+        # Логируем статистику по IP
+        self.logger.info("Статистика по IP после дедупликации:")
+        for src_ip, stats in list(ip_stats.items())[:10]:  # Первые 10 для лога
+            self.logger.info(f"  {src_ip}: {stats['total']} алертов, лучший: {stats['best_severity']}")
+        
+        # Реагирование на дедуплицированные алерты
+        self.logger.info(f"Начало реагирования на {len(deduplicated)} алертов")
         
         print()
         self._print_separator("=")
         print(self._colorize("🔴 ОБНАРУЖЕНЫ УГРОЗЫ", "CRITICAL"))
         self._print_separator("=")
-        print(f"Всего обнаружено: {len(alerts)}")
+        print(f"Всего обнаружено: {len(deduplicated)} (из {len(alerts)} исходных)")
         
         # Сортируем по критичности
         severity_order = {'CRITICAL': 0, 'HIGH': 1, 'MEDIUM': 2, 'LOW': 3}
         sorted_alerts = sorted(
-            alerts,
+            deduplicated,
             key=lambda a: severity_order.get(a.severity, 999)
         )
         
         # Обрабатываем каждый алерт
         for i, alert in enumerate(sorted_alerts, 1):
+            # Добавляем информацию о дубликатах в описание
+            total_for_ip = alert.raw_data.get('total_alerts_for_ip', 1)
+            unique_sevs = alert.raw_data.get('unique_severities', [alert.severity])
+            
             self._print_alert_header(alert)
             self._print_alert_details(alert)
+            
+            # Дополнительная информация о дубликатах
+            if total_for_ip > 1:
+                print(f"  {self._colorize('📊 Статистика:', 'INFO')} всего {total_for_ip} алертов от этого IP")
+                print(f"     Уровни критичности: {', '.join(unique_sevs)}")
+            
             self._print_raw_data(alert)
             self._print_action(alert)
             
@@ -170,7 +246,7 @@ class ConsoleLogger(BaseResponder):
         self._print_separator("-")
         
         for severity in ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW']:
-            count = sum(1 for a in alerts if a.severity == severity)
+            count = sum(1 for a in deduplicated if a.severity == severity)
             if count > 0:
                 color = severity if severity in self.COLORS else 'INFO'
                 print(f"  {self._colorize(f'{severity}:', color)} {count}")
@@ -191,66 +267,3 @@ def create_responder(simulate_blocking: bool = True) -> ConsoleLogger:
         Настроенный responder
     """
     return ConsoleLogger(simulate_blocking=simulate_blocking)
-
-
-# Блок тестирования
-if __name__ == "__main__":
-    from datetime import datetime
-    
-    # Настраиваем логирование
-    from utils.logger import setup_logger
-    setup_logger(console_level=10)
-    
-    # Создаем тестовые алерты
-    test_alerts = [
-        Alert(
-            title="Критическая уязвимость в nginx",
-            severity="CRITICAL",
-            source="cvss_analyzer",
-            description="Remote Code Execution в nginx 1.18.0 (CVE-2024-1234)",
-            indicator="CVE-2024-1234",
-            timestamp=datetime.now(),
-            raw_data={'cvss': 9.8, 'affected': 'nginx 1.18.0'}
-        ),
-        Alert(
-            title="Подозрительный DNS трафик",
-            severity="HIGH",
-            source="traffic_analyzer",
-            description="Аномально высокая частота запросов к c2-malware.com",
-            indicator="c2-malware.com",
-            timestamp=datetime.now(),
-            raw_data={'query_count': 150, 'unique_sources': 5}
-        ),
-        Alert(
-            title="IP в черных списках",
-            severity="MEDIUM",
-            source="virustotal",
-            description="IP обнаружен в 3 черных списках",
-            indicator="185.130.5.133",
-            timestamp=datetime.now(),
-            raw_data={'malicious': 3, 'suspicious': 2}
-        )
-    ]
-    
-    # Тест с режимом блокировки
-    print("\n" + "=" * 60)
-    print("ТЕСТ: РЕЖИМ БЛОКИРОВКИ")
-    print("=" * 60)
-    
-    responder_block = ConsoleLogger(simulate_blocking=True)
-    responder_block.respond(test_alerts)
-    
-    # Тест с режимом уведомления
-    print("\n" + "=" * 60)
-    print("ТЕСТ: РЕЖИМ УВЕДОМЛЕНИЯ")
-    print("=" * 60)
-    
-    responder_notify = ConsoleLogger(simulate_blocking=False)
-    responder_notify.respond(test_alerts)
-    
-    # Тест с пустым списком
-    print("\n" + "=" * 60)
-    print("ТЕСТ: НЕТ УГРОЗ")
-    print("=" * 60)
-    
-    responder_block.respond([])
