@@ -53,7 +53,8 @@
 
 ---
 
-## 🏗 **Архитектура**
+## **Архитектура**
+
 threat_detector/
 ├── main.py # Оркестратор (точка входа)
 ├── config.py # Конфигурация из .env
@@ -94,7 +95,7 @@ threat_detector/
 │ └── init.py
 └── logs&results
 
-### 🔄 **Поток данных**
+###  **Поток данных**
 
 ``mermaid
 graph LR
@@ -112,6 +113,7 @@ graph LR
     style F fill:#cc3300,stroke:#333,stroke-width:2px
 
 ## **Установка**
+
 Предварительные требования
 Python 3.8 или выше
 
@@ -121,6 +123,7 @@ pip и virtualenv (рекомендуется)
 
 Пошаговая установка
 bash
+
 # 1. Клонирование репозитория
 git clone https://github.com/DuckDark4ever/dz_final.git
 cd dz_final
@@ -143,6 +146,7 @@ cp .env.example .env
 ## **Настройка**
 Файл .env
 env
+
 # === API Keys (опционально) ===
 VIRUSTOTAL_API_KEY=your_virustotal_key_here
 VULNERS_API_KEY=your_vulners_key_here
@@ -161,13 +165,19 @@ MAX_FILE_SIZE_MB=100             # Макс. размер файла лога д
 ENVIRONMENT=development          # development/production
 
 ## **Быстрый старт**
+
 Проверка установки
+
 bash
 python main.py --help
+
 Минимальный запуск (без внешних API)
+
 bash
 python main.py --suricata-log /var/log/suricata/eve.json
+
 Проверка результатов
+
 bash
 # Просмотр сгенерированных отчётов
 ls -la ./reports/
@@ -176,6 +186,7 @@ ls -la ./reports/
 ls -la logs&results/
 
 ## **Примеры использования**
+
 1️⃣ Анализ логов Suricata
 bash
 # Базовый анализ
@@ -189,6 +200,7 @@ python main.py \
 
 # С подробным выводом
 python main.py --suricata-log eve.json --verbose
+
 2️⃣ Проверка индикаторов через VirusTotal
 bash
 # Проверка одного IP
@@ -203,7 +215,9 @@ python main.py \
 python main.py \
   --check-ip 185.130.5.133 \
   --output-dir ./vt_results
+
 3️⃣ Поиск уязвимостей через Vulners
+
 bash
 # Для конкретного ПО
 python main.py --vuln-software "nginx 1.18.0"
@@ -213,7 +227,9 @@ python main.py --vuln-software "Apache HTTP Server 2.4.49"
 
 # С порогом CVSS из конфига
 python main.py --vuln-software "openssl 1.1.1" --verbose
+
 4️⃣ Полный цикл с уведомлениями
+
 bash
 # Все источники + отчёты + Telegram
 python main.py \
@@ -224,6 +240,7 @@ python main.py \
   --output-dir ./full_report \
   --theme dark \
   --verbose
+
 5️⃣ Тестовые режимы
 bash
 # Dry-run: без реальных действий
@@ -262,10 +279,13 @@ python main.py [OPTIONS]
 
  ## **Разработка и тестирование**
 Установка зависимостей для разработки
+
 bash
 pip install -r requirements.txt
 pip install pytest pytest-cov flake8 mypy black isort
+
 Запуск тестов
+
 bash
 # Все тесты с покрытием
 pytest tests/ --cov=threat_detector --cov-report=html
@@ -292,15 +312,18 @@ black threat_detector/
 isort threat_detector/
 
 ## **Безопасность**
+
 Принципы, реализованные в проекте
-Принцип	Реализация
+
 Секреты вне кода	Все API-ключи через .env, файл в .gitignore
 Валидация входа	Проверка размера файлов, типов данных, форматов
 Rate limiting	Экспоненциальные задержки для всех внешних API
 Экранирование	Защита от Markdown-инъекций в Telegram
 Безопасные пути	Использование pathlib, проверка существования файлов
 Graceful degradation	При отсутствии ключей модули отключаются, но приложение работает
+
 Что НЕ хранить в репозитории
+
 bash
 # .gitignore уже исключает:
 .env                    # Реальные ключи
