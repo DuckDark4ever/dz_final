@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Главный оркестратор Threat Detector.
-Координирует работу всех модулей: сбор -> анализ -> реагирование -> отчет.
+Координирует работу всех модулей: сбор -> анализ -> отчеты -> дедупликация -> реагирование.
 """
 import argparse
 import sys
@@ -76,7 +76,6 @@ class ThreatDetector:
         self.logger.debug("Регистрация коллекторов...")
         
         # Suricata: фабрика (требует путь к файлу при создании)
-        # Храним класс, но будем вызывать его с путем при использовании
         self.collectors['suricata'] = SuricataLogCollector
         
         # VirusTotal: проверяем ключ, но не падаем при ошибке
@@ -93,7 +92,6 @@ class ThreatDetector:
         
         # Vulners: публичный доступ работает и без ключа
         try:
-            # Параметр use_api_key определяет, пытаться ли использовать ключ из конфига
             self.collectors['vulners'] = VulnersCollector(
                 use_api_key=bool(Config.get_vulners_api_key()),
                 max_cache_size=500
@@ -108,12 +106,31 @@ class ThreatDetector:
         # === 2. АНАЛИЗАТОРЫ ===
         self.logger.debug("Регистрация анализаторов...")
         
-        self.analyzers = [
-            CVSSAnalyzer(),
-            TrafficAnalyzer(),
-            SuricataPandasAnalyzer(),
-        ]
+        # Создаем все возможные анализаторы
+        all_analyzers = {
+            'cvss': CVSSAnalyzer(),
+            'traffic': TrafficAnalyzer(),
+            'pandas': SuricataPandasAnalyzer()
+        }
         
+        # Определяем, какие анализаторы запускать
+        analyzer_choice = getattr(self.args, 'analyzers', 'all').lower()
+        
+        if analyzer_choice == 'all':
+            selected_analyzers = list(all_analyzers.values())
+            self.logger.info(f"  Запуск всех анализаторов: {list(all_analyzers.keys())}")
+        else:
+            # Разбираем строку с анализаторами (например, "pandas" или "cvss,traffic")
+            selected_names = [name.strip() for name in analyzer_choice.split(',')]
+            selected_analyzers = []
+            for name in selected_names:
+                if name in all_analyzers:
+                    selected_analyzers.append(all_analyzers[name])
+                    self.logger.info(f"  Добавлен анализатор: {name}")
+                else:
+                    self.logger.warning(f"  Неизвестный анализатор: {name}, доступны: {list(all_analyzers.keys())}")
+        
+        self.analyzers = selected_analyzers
         self.logger.info(f"  → Анализаторов зарегистрировано: {len(self.analyzers)}")
         
         # === 3. RESPONDERS ===
@@ -129,7 +146,6 @@ class ThreatDetector:
         if not self.args.no_telegram:
             if Config.get_telegram_token() and Config.get_telegram_chat_id():
                 try:
-                    # В dry-run режиме не отправляем реальные сообщения
                     dry_run = self.args.dry_run or Config.is_development()
                     self.responders.append(TelegramNotifier(dry_run=dry_run))
                     self.logger.info("  ✓ Telegram notifier зарегистрирован")
@@ -246,7 +262,7 @@ class ThreatDetector:
             events: Список сырых событий
         
         Returns:
-            Список алертов
+            Список алертов (до дедупликации)
         """
         if not events:
             return []
@@ -272,43 +288,17 @@ class ThreatDetector:
             except Exception as e:
                 self.logger.error(f"Ошибка в анализаторе {analyzer}: {e}", exc_info=self.args.verbose)
         
-        self.logger.info(f"Всего обнаружено алертов: {len(all_alerts)}")
+        self.logger.info(f"Всего обнаружено алертов (до дедупликации): {len(all_alerts)}")
         return all_alerts
-    
-    def _respond_to_alerts(self, alerts: List[Alert]) -> None:
-        """
-        Реагирование на алерты через все зарегистрированные responders.
-        
-        Args:
-            alerts: Список алертов
-        """
-        if not alerts:
-            self.logger.info("Нет алертов для реагирования")
-            return
-        
-        if not self.responders:
-            self.logger.warning("Нет зарегистрированных responders")
-            return
-        
-        self.logger.info(f"Запуск responders ({len(self.responders)})...")
-        
-        for responder in self.responders:
-            try:
-                responder_name = getattr(responder, 'name', type(responder).__name__)
-                self.logger.debug(f"Запуск responder: {responder_name}")
-                
-                responder.respond(alerts)
-                
-            except Exception as e:
-                self.logger.error(f"Ошибка в responder {responder}: {e}", exc_info=self.args.verbose)
     
     def _generate_reports(self, events: List[RawEvent], alerts: List[Alert]) -> None:
         """
         Генерация отчетов через все зарегистрированные reporters.
+        Выполняется ДО дедупликации, чтобы сохранить полные данные.
         
         Args:
             events: Список сырых событий
-            alerts: Список алертов
+            alerts: Список алертов (до дедупликации)
         """
         if not self.reporters:
             self.logger.warning("Нет зарегистрированных reporters")
@@ -338,9 +328,40 @@ class ThreatDetector:
             except Exception as e:
                 self.logger.error(f"Ошибка в reporter {reporter}: {e}", exc_info=self.args.verbose)
     
+    
+    
+    def _respond_to_alerts(self, alerts: List[Alert]) -> None:
+        """
+        Реагирование на алерты через все зарегистрированные responders.
+        Выполняется ПОСЛЕ дедупликации.
+        
+        Args:
+            alerts: Список алертов (после дедупликации)
+        """
+        if not alerts:
+            self.logger.info("Нет алертов для реагирования")
+            return
+        
+        if not self.responders:
+            self.logger.warning("Нет зарегистрированных responders")
+            return
+        
+        self.logger.info(f"Запуск responders ({len(self.responders)})...")
+        
+        for responder in self.responders:
+            try:
+                responder_name = getattr(responder, 'name', type(responder).__name__)
+                self.logger.debug(f"Запуск responder: {responder_name}")
+                
+                responder.respond(alerts)
+                
+            except Exception as e:
+                self.logger.error(f"Ошибка в responder {responder}: {e}", exc_info=self.args.verbose)
+    
     def run(self) -> None:
         """
         Запускает полный цикл обработки на основе аргументов командной строки.
+        Новый порядок: сбор -> анализ -> отчеты -> дедупликация -> реагирование
         """
         self.logger.info("=" * 50)
         self.logger.info("Запуск цикла обнаружения угроз")
@@ -383,17 +404,18 @@ class ThreatDetector:
         # Шаг 2: Анализ данных
         self.logger.info("")
         self.logger.info("▶ ЭТАП 2: АНАЛИЗ ДАННЫХ")
-        alerts = self._analyze_data(raw_events)
+        all_alerts = self._analyze_data(raw_events)
         
-        # Шаг 3: Реагирование
+        # Шаг 3: Отчетность (до дедупликации)
         self.logger.info("")
-        self.logger.info("▶ ЭТАП 3: РЕАГИРОВАНИЕ")
-        self._respond_to_alerts(alerts)
+        self.logger.info("▶ ЭТАП 3: ФОРМИРОВАНИЕ ОТЧЕТОВ (ПОЛНЫЕ ДАННЫЕ)")
+        self._generate_reports(raw_events, all_alerts)
         
-        # Шаг 4: Отчетность
+                
+        # Шаг 4: Реагирование (после дедупликации)
         self.logger.info("")
-        self.logger.info("▶ ЭТАП 4: ФОРМИРОВАНИЕ ОТЧЕТОВ")
-        self._generate_reports(raw_events, alerts)
+        self.logger.info("▶ ЭТАП 4: РЕАГИРОВАНИЕ")
+        self._respond_to_alerts(all_alerts)
         
         self.logger.info("")
         self.logger.info("=" * 50)
@@ -413,6 +435,8 @@ def parse_arguments():
   %(prog)s --suricata-log /var/log/suricata/eve.json
   %(prog)s --check-ip 8.8.8.8 1.1.1.1 --check-domain google.com
   %(prog)s --vuln-software "nginx 1.18.0" --output-dir ./reports
+  %(prog)s --suricata-log eve.json --analyzers pandas         # только pandas
+  %(prog)s --suricata-log eve.json --analyzers cvss,traffic   # несколько анализаторов
         """
     )
     
@@ -466,6 +490,13 @@ def parse_arguments():
         choices=['dark', 'light'],
         default='dark',
         help='Тема графиков (dark/light)'
+    )
+    # Выбор анализаторов
+    config_group.add_argument(
+        '--analyzers', 
+        type=str,
+        default='all',
+        help='Анализаторы для запуска: all, cvss, traffic, pandas (через запятую для нескольких)'
     )
     
     # Выходные данные
