@@ -1,12 +1,10 @@
 """
-Suricata Pandas Analyzer - финальная версия
+Suricata Pandas Analyzer 
 Анализирует логи Suricata, обнаруживает сканирования портов и IP из черных списков
 """
 import pandas as pd
-import numpy as np
-from typing import List, Any, Dict, Optional
+from typing import List, Any
 from datetime import datetime
-from collections import Counter
 
 from analyzers.base import BaseAnalyzer
 from models.alert import Alert
@@ -141,7 +139,7 @@ class SuricataPandasAnalyzer(BaseAnalyzer):
             ports = df_ports[df_ports['src_ip'] == src_ip]['dest_port'].unique()
             
             alert = Alert(
-                title=f"Обнаружено сканирование портов",
+                title="Обнаружено сканирование портов",
                 severity="HIGH",
                 source=self.name,
                 description=f"IP {src_ip} обратился к {port_count} различным портам",
@@ -193,7 +191,7 @@ class SuricataPandasAnalyzer(BaseAnalyzer):
             count = row['count']
             
             alert = Alert(
-                title=f"IP из черного списка",
+                title="IP из черного списка",
                 severity="CRITICAL",
                 source=self.name,
                 description=f"IP {src_ip} обнаружен в {count} событиях с сигнатурами из черных списков",
@@ -210,7 +208,7 @@ class SuricataPandasAnalyzer(BaseAnalyzer):
         
         return alerts
     
-    def _generate_statistics(self, df: pd.DataFrame) -> Dict:
+    def _generate_statistics(self, df: pd.DataFrame) -> dict:
         """
         Генерирует статистику по данным.
         
@@ -243,10 +241,14 @@ class SuricataPandasAnalyzer(BaseAnalyzer):
             severity_counts = df['severity'].value_counts().to_dict()
             stats['severity_distribution'] = {f"severity_{k}": int(v) for k, v in severity_counts.items()}
         
-        if 'timestamp' in df.columns and not df['timestamp'].empty:
-            # Временной диапазон
-            stats['time_min'] = df['timestamp'].min().isoformat() if not df['timestamp'].empty else None
-            stats['time_max'] = df['timestamp'].max().isoformat() if not df['timestamp'].empty else None
+        if 'timestamp' in df.columns:
+            # Безопасное получение временного диапазона
+            ts_series = df['timestamp'].dropna()
+            if not ts_series.empty:
+                min_ts = ts_series.min()
+                max_ts = ts_series.max()
+                stats['time_min'] = min_ts.isoformat() if pd.notna(min_ts) else None
+                stats['time_max'] = max_ts.isoformat() if pd.notna(max_ts) else None
         
         return stats
     
@@ -258,7 +260,7 @@ class SuricataPandasAnalyzer(BaseAnalyzer):
             events: Список событий
             
         Returns:
-            Список алертов
+            Список алертов (без дедупликации)
         """
         self.logger.info(f"Начало Pandas-анализа, получено событий: {len(events)}")
         
@@ -287,22 +289,9 @@ class SuricataPandasAnalyzer(BaseAnalyzer):
         alerts.extend(self._analyze_port_scans(df))
         alerts.extend(self._analyze_blacklisted_ips(df))
         
-        # Дедупликация по src_ip (оставляем только один алерт на IP)
-        unique_by_ip = {}
-        for alert in alerts:
-            src_ip = alert.raw_data.get('src_ip')
-            if src_ip and src_ip not in unique_by_ip:
-                unique_by_ip[src_ip] = alert
+        self.logger.info(f"Анализ завершен: всего создано алертов: {len(alerts)}")
         
-        final_alerts = list(unique_by_ip.values())
-        
-        self.logger.info(
-            f"Анализ завершен:\n"
-            f"  Всего создано алертов: {len(alerts)}\n"
-            f"  После дедупликации: {len(final_alerts)}"
-        )
-        
-        return final_alerts
+        return alerts
 
 
 def create_analyzer() -> SuricataPandasAnalyzer:
