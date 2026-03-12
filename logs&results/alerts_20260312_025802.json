@@ -1,0 +1,1428 @@
+[
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 1.169.38.217 обратился к 5 различным портам",
+    "indicator": "1.169.38.217",
+    "raw_data": {
+      "src_ip": "1.169.38.217",
+      "port_count": 5,
+      "ports": [
+        1433,
+        80,
+        22,
+        5060,
+        8443
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.319628",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 185.244.25.145 обратился к 6 различным портам",
+    "indicator": "185.244.25.145",
+    "raw_data": {
+      "src_ip": "185.244.25.145",
+      "port_count": 6,
+      "ports": [
+        3306,
+        445,
+        5432,
+        1433,
+        443,
+        5060
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.320895",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 185.244.25.167 обратился к 7 различным портам",
+    "indicator": "185.244.25.167",
+    "raw_data": {
+      "src_ip": "185.244.25.167",
+      "port_count": 7,
+      "ports": [
+        445,
+        5432,
+        443,
+        3389,
+        80,
+        22,
+        161
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.322068",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 197.34.56.78 обратился к 5 различным портам",
+    "indicator": "197.34.56.78",
+    "raw_data": {
+      "src_ip": "197.34.56.78",
+      "port_count": 5,
+      "ports": [
+        23,
+        5060,
+        445,
+        443,
+        22
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.323169",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 198.51.100.23 обратился к 5 различным портам",
+    "indicator": "198.51.100.23",
+    "raw_data": {
+      "src_ip": "198.51.100.23",
+      "port_count": 5,
+      "ports": [
+        22,
+        445,
+        3389,
+        8443,
+        443
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.324191",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 203.0.113.45 обратился к 5 различным портам",
+    "indicator": "203.0.113.45",
+    "raw_data": {
+      "src_ip": "203.0.113.45",
+      "port_count": 5,
+      "ports": [
+        443,
+        8080,
+        5811,
+        3389,
+        8443
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.325169",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 31.163.158.140 обратился к 8 различным портам",
+    "indicator": "31.163.158.140",
+    "raw_data": {
+      "src_ip": "31.163.158.140",
+      "port_count": 8,
+      "ports": [
+        8080,
+        22,
+        5432,
+        5811,
+        80,
+        1521,
+        443,
+        161
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.326208",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 37.49.231.125 обратился к 8 различным портам",
+    "indicator": "37.49.231.125",
+    "raw_data": {
+      "src_ip": "37.49.231.125",
+      "port_count": 8,
+      "ports": [
+        8443,
+        5060,
+        3389,
+        22,
+        23,
+        6379,
+        1433,
+        80
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.327193",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 45.62.211.169 обратился к 5 различным портам",
+    "indicator": "45.62.211.169",
+    "raw_data": {
+      "src_ip": "45.62.211.169",
+      "port_count": 5,
+      "ports": [
+        22,
+        445,
+        8080,
+        1433,
+        5060
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.328139",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 46.100.43.82 обратился к 6 различным портам",
+    "indicator": "46.100.43.82",
+    "raw_data": {
+      "src_ip": "46.100.43.82",
+      "port_count": 6,
+      "ports": [
+        8080,
+        22,
+        5060,
+        1433,
+        23,
+        3306
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.329084",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 5.101.40.81 обратился к 5 различным портам",
+    "indicator": "5.101.40.81",
+    "raw_data": {
+      "src_ip": "5.101.40.81",
+      "port_count": 5,
+      "ports": [
+        22,
+        5060,
+        8443,
+        3306,
+        443
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.330100",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 5.188.206.22 обратился к 5 различным портам",
+    "indicator": "5.188.206.22",
+    "raw_data": {
+      "src_ip": "5.188.206.22",
+      "port_count": 5,
+      "ports": [
+        3389,
+        8080,
+        161,
+        5060,
+        23
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.331075",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 58.48.32.199 обратился к 7 различным портам",
+    "indicator": "58.48.32.199",
+    "raw_data": {
+      "src_ip": "58.48.32.199",
+      "port_count": 7,
+      "ports": [
+        5060,
+        1433,
+        8443,
+        3389,
+        5915,
+        161,
+        3306
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.332056",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 59.47.71.13 обратился к 5 различным портам",
+    "indicator": "59.47.71.13",
+    "raw_data": {
+      "src_ip": "59.47.71.13",
+      "port_count": 5,
+      "ports": [
+        3389,
+        8443,
+        8080,
+        443,
+        22
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.332979",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 61.176.222.167 обратился к 6 различным портам",
+    "indicator": "61.176.222.167",
+    "raw_data": {
+      "src_ip": "61.176.222.167",
+      "port_count": 6,
+      "ports": [
+        22,
+        23,
+        8443,
+        3306,
+        161,
+        8080
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.333891",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 61.219.11.151 обратился к 8 различным портам",
+    "indicator": "61.219.11.151",
+    "raw_data": {
+      "src_ip": "61.219.11.151",
+      "port_count": 8,
+      "ports": [
+        161,
+        8080,
+        3306,
+        22,
+        5060,
+        3389,
+        1521,
+        443
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.334872",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 66.240.236.119 обратился к 6 различным портам",
+    "indicator": "66.240.236.119",
+    "raw_data": {
+      "src_ip": "66.240.236.119",
+      "port_count": 6,
+      "ports": [
+        443,
+        22,
+        3306,
+        80,
+        3389,
+        5060
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.335789",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 71.6.232.4 обратился к 7 различным портам",
+    "indicator": "71.6.232.4",
+    "raw_data": {
+      "src_ip": "71.6.232.4",
+      "port_count": 7,
+      "ports": [
+        1433,
+        8443,
+        3306,
+        80,
+        22,
+        3389,
+        8080
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.336709",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 78.128.112.98 обратился к 6 различным портам",
+    "indicator": "78.128.112.98",
+    "raw_data": {
+      "src_ip": "78.128.112.98",
+      "port_count": 6,
+      "ports": [
+        443,
+        445,
+        3389,
+        22,
+        5060,
+        3306
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.337626",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 80.211.172.233 обратился к 5 различным портам",
+    "indicator": "80.211.172.233",
+    "raw_data": {
+      "src_ip": "80.211.172.233",
+      "port_count": 5,
+      "ports": [
+        445,
+        80,
+        22,
+        8443,
+        1433
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.338522",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 80.211.246.121 обратился к 10 различным портам",
+    "indicator": "80.211.246.121",
+    "raw_data": {
+      "src_ip": "80.211.246.121",
+      "port_count": 10,
+      "ports": [
+        443,
+        445,
+        80,
+        22,
+        3389,
+        1521,
+        8080,
+        5915,
+        3306,
+        23
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.339554",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 80.82.77.33 обратился к 7 различным портам",
+    "indicator": "80.82.77.33",
+    "raw_data": {
+      "src_ip": "80.82.77.33",
+      "port_count": 7,
+      "ports": [
+        23,
+        6379,
+        445,
+        1521,
+        22,
+        443,
+        8080
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.340513",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 82.202.209.155 обратился к 8 различным портам",
+    "indicator": "82.202.209.155",
+    "raw_data": {
+      "src_ip": "82.202.209.155",
+      "port_count": 8,
+      "ports": [
+        23,
+        22,
+        1433,
+        445,
+        5915,
+        5060,
+        3389,
+        80
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.341426",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 88.202.190.148 обратился к 10 различным портам",
+    "indicator": "88.202.190.148",
+    "raw_data": {
+      "src_ip": "88.202.190.148",
+      "port_count": 10,
+      "ports": [
+        23,
+        3306,
+        80,
+        5915,
+        1521,
+        3389,
+        445,
+        443,
+        8080,
+        5060
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.342360",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 89.248.168.51 обратился к 8 различным портам",
+    "indicator": "89.248.168.51",
+    "raw_data": {
+      "src_ip": "89.248.168.51",
+      "port_count": 8,
+      "ports": [
+        1521,
+        1433,
+        5915,
+        5811,
+        80,
+        443,
+        22,
+        8443
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.343315",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 91.245.36.26 обратился к 7 различным портам",
+    "indicator": "91.245.36.26",
+    "raw_data": {
+      "src_ip": "91.245.36.26",
+      "port_count": 7,
+      "ports": [
+        8443,
+        5811,
+        1433,
+        22,
+        80,
+        8080,
+        6379
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.344252",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 92.53.76.213 обратился к 8 различным портам",
+    "indicator": "92.53.76.213",
+    "raw_data": {
+      "src_ip": "92.53.76.213",
+      "port_count": 8,
+      "ports": [
+        1433,
+        445,
+        161,
+        8443,
+        3306,
+        8080,
+        22,
+        23
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.345205",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "Обнаружено сканирование портов",
+    "severity": "HIGH",
+    "source": "suricata_pandas",
+    "description": "IP 92.63.194.33 обратился к 5 различным портам",
+    "indicator": "92.63.194.33",
+    "raw_data": {
+      "src_ip": "92.63.194.33",
+      "port_count": 5,
+      "ports": [
+        3306,
+        445,
+        1433,
+        5060,
+        1521
+      ],
+      "analysis_type": "port_scan"
+    },
+    "timestamp": "2026-03-12 02:58:02.346127",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 1.169.38.217 обнаружен в 5 событиях с сигнатурами из черных списков",
+    "indicator": "1.169.38.217",
+    "raw_data": {
+      "src_ip": "1.169.38.217",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 57",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 35",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 3"
+      ],
+      "total_count": 5,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.358140",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 185.130.5.133 обнаружен в 1 событиях с сигнатурами из черных списков",
+    "indicator": "185.130.5.133",
+    "raw_data": {
+      "src_ip": "185.130.5.133",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 67"
+      ],
+      "total_count": 1,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.358559",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 185.244.25.145 обнаружен в 3 событиях с сигнатурами из черных списков",
+    "indicator": "185.244.25.145",
+    "raw_data": {
+      "src_ip": "185.244.25.145",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 35",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 67",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 62"
+      ],
+      "total_count": 3,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.358900",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 185.244.25.167 обнаружен в 4 событиях с сигнатурами из черных списков",
+    "indicator": "185.244.25.167",
+    "raw_data": {
+      "src_ip": "185.244.25.167",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 57",
+        "ET DROP Dshield Block Listed Source group 1",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 32"
+      ],
+      "total_count": 4,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.359187",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 193.42.36.78 обнаружен в 5 событиях с сигнатурами из черных списков",
+    "indicator": "193.42.36.78",
+    "raw_data": {
+      "src_ip": "193.42.36.78",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 57",
+        "ET DROP Dshield Block Listed Source group 1",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 62"
+      ],
+      "total_count": 5,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.359439",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 196.23.45.67 обнаружен в 1 событиях с сигнатурами из черных списков",
+    "indicator": "196.23.45.67",
+    "raw_data": {
+      "src_ip": "196.23.45.67",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 67"
+      ],
+      "total_count": 1,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.359687",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 197.34.56.78 обнаружен в 3 событиях с сигнатурами из черных списков",
+    "indicator": "197.34.56.78",
+    "raw_data": {
+      "src_ip": "197.34.56.78",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 57",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 4",
+        "ET CINS Active Threat Intelligence Poor Reputation IP UDP group 24"
+      ],
+      "total_count": 3,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.359959",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 198.51.100.23 обнаружен в 5 событиях с сигнатурами из черных списков",
+    "indicator": "198.51.100.23",
+    "raw_data": {
+      "src_ip": "198.51.100.23",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 57",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 32",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 67"
+      ],
+      "total_count": 5,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.360225",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 203.0.113.45 обнаружен в 6 событиях с сигнатурами из черных списков",
+    "indicator": "203.0.113.45",
+    "raw_data": {
+      "src_ip": "203.0.113.45",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 67",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 36",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 32"
+      ],
+      "total_count": 6,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.360464",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 31.163.158.140 обнаружен в 3 событиях с сигнатурами из черных списков",
+    "indicator": "31.163.158.140",
+    "raw_data": {
+      "src_ip": "31.163.158.140",
+      "signatures": [
+        "ET DROP Dshield Block Listed Source group 1",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 35"
+      ],
+      "total_count": 3,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.360723",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 31.192.108.68 обнаружен в 3 событиях с сигнатурами из черных списков",
+    "indicator": "31.192.108.68",
+    "raw_data": {
+      "src_ip": "31.192.108.68",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 18",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 36",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 62"
+      ],
+      "total_count": 3,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.360988",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 37.49.231.125 обнаружен в 4 событиях с сигнатурами из черных списков",
+    "indicator": "37.49.231.125",
+    "raw_data": {
+      "src_ip": "37.49.231.125",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 62",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 4",
+        "ET COMPROMISED Known Compromised or Hostile Host Traffic TCP group 46"
+      ],
+      "total_count": 4,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.361244",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 37.49.231.178 обнаружен в 2 событиях с сигнатурами из черных списков",
+    "indicator": "37.49.231.178",
+    "raw_data": {
+      "src_ip": "37.49.231.178",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP UDP group 24",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 4"
+      ],
+      "total_count": 2,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.361485",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 43.227.231.129 обнаружен в 1 событиях с сигнатурами из черных списков",
+    "indicator": "43.227.231.129",
+    "raw_data": {
+      "src_ip": "43.227.231.129",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 5"
+      ],
+      "total_count": 1,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.361719",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 45.62.211.169 обнаружен в 5 событиях с сигнатурами из черных списков",
+    "indicator": "45.62.211.169",
+    "raw_data": {
+      "src_ip": "45.62.211.169",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 32",
+        "ET CINS Active Threat Intelligence Poor Reputation IP UDP group 24",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 5"
+      ],
+      "total_count": 5,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.361997",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 46.100.43.82 обнаружен в 5 событиях с сигнатурами из черных списков",
+    "indicator": "46.100.43.82",
+    "raw_data": {
+      "src_ip": "46.100.43.82",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP UDP group 24",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 57",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 24"
+      ],
+      "total_count": 5,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.362255",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 5.101.40.81 обнаружен в 4 событиях с сигнатурами из черных списков",
+    "indicator": "5.101.40.81",
+    "raw_data": {
+      "src_ip": "5.101.40.81",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 67",
+        "ET DROP Dshield Block Listed Source group 1",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 19"
+      ],
+      "total_count": 4,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.362499",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 5.141.67.237 обнаружен в 4 событиях с сигнатурами из черных списков",
+    "indicator": "5.141.67.237",
+    "raw_data": {
+      "src_ip": "5.141.67.237",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 56",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 24",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 36"
+      ],
+      "total_count": 4,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.362754",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 5.188.206.22 обнаружен в 3 событиях с сигнатурами из черных списков",
+    "indicator": "5.188.206.22",
+    "raw_data": {
+      "src_ip": "5.188.206.22",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 67",
+        "ET DROP Dshield Block Listed Source group 1",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 57"
+      ],
+      "total_count": 3,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.363034",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 58.218.213.6 обнаружен в 1 событиях с сигнатурами из черных списков",
+    "indicator": "58.218.213.6",
+    "raw_data": {
+      "src_ip": "58.218.213.6",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 62"
+      ],
+      "total_count": 1,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.363278",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 58.48.32.199 обнаружен в 3 событиях с сигнатурами из черных списков",
+    "indicator": "58.48.32.199",
+    "raw_data": {
+      "src_ip": "58.48.32.199",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 19",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 1",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 56"
+      ],
+      "total_count": 3,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.363524",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 59.47.71.13 обнаружен в 5 событиях с сигнатурами из черных списков",
+    "indicator": "59.47.71.13",
+    "raw_data": {
+      "src_ip": "59.47.71.13",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 49",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 19",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 36"
+      ],
+      "total_count": 5,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.363768",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 61.176.222.167 обнаружен в 7 событиях с сигнатурами из черных списков",
+    "indicator": "61.176.222.167",
+    "raw_data": {
+      "src_ip": "61.176.222.167",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 24",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 67",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 45"
+      ],
+      "total_count": 7,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.364059",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 61.219.11.151 обнаружен в 8 событиях с сигнатурами из черных списков",
+    "indicator": "61.219.11.151",
+    "raw_data": {
+      "src_ip": "61.219.11.151",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 4",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 18",
+        "ET COMPROMISED Known Compromised or Hostile Host Traffic TCP group 46"
+      ],
+      "total_count": 8,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.364306",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 66.240.236.119 обнаружен в 5 событиях с сигнатурами из черных списков",
+    "indicator": "66.240.236.119",
+    "raw_data": {
+      "src_ip": "66.240.236.119",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 49",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 24",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 57"
+      ],
+      "total_count": 5,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.364550",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 71.6.199.23 обнаружен в 1 событиях с сигнатурами из черных списков",
+    "indicator": "71.6.199.23",
+    "raw_data": {
+      "src_ip": "71.6.199.23",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 1"
+      ],
+      "total_count": 1,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.364786",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 71.6.232.4 обнаружен в 6 событиях с сигнатурами из черных списков",
+    "indicator": "71.6.232.4",
+    "raw_data": {
+      "src_ip": "71.6.232.4",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP UDP group 24",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 49",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 35"
+      ],
+      "total_count": 6,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.365075",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 78.128.112.98 обнаружен в 5 событиях с сигнатурами из черных списков",
+    "indicator": "78.128.112.98",
+    "raw_data": {
+      "src_ip": "78.128.112.98",
+      "signatures": [
+        "ET COMPROMISED Known Compromised or Hostile Host Traffic TCP group 46",
+        "ET DROP Dshield Block Listed Source group 1",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 36"
+      ],
+      "total_count": 5,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.365321",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 8.42.77.171 обнаружен в 6 событиях с сигнатурами из черных списков",
+    "indicator": "8.42.77.171",
+    "raw_data": {
+      "src_ip": "8.42.77.171",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 62",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 49",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 67"
+      ],
+      "total_count": 6,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.365561",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 80.211.172.233 обнаружен в 10 событиях с сигнатурами из черных списков",
+    "indicator": "80.211.172.233",
+    "raw_data": {
+      "src_ip": "80.211.172.233",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 24",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 49",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 57"
+      ],
+      "total_count": 10,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.365806",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 80.211.246.121 обнаружен в 10 событиях с сигнатурами из черных списков",
+    "indicator": "80.211.246.121",
+    "raw_data": {
+      "src_ip": "80.211.246.121",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 57",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 44",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 62"
+      ],
+      "total_count": 10,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.366095",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 80.82.77.33 обнаружен в 7 событиях с сигнатурами из черных списков",
+    "indicator": "80.82.77.33",
+    "raw_data": {
+      "src_ip": "80.82.77.33",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 1",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 56",
+        "ET DROP Dshield Block Listed Source group 1"
+      ],
+      "total_count": 7,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.366338",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 82.202.209.155 обнаружен в 7 событиях с сигнатурами из черных списков",
+    "indicator": "82.202.209.155",
+    "raw_data": {
+      "src_ip": "82.202.209.155",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 19",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 44",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 4"
+      ],
+      "total_count": 7,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.366580",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 88.202.190.148 обнаружен в 10 событиях с сигнатурами из черных списков",
+    "indicator": "88.202.190.148",
+    "raw_data": {
+      "src_ip": "88.202.190.148",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 32",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 56",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 67"
+      ],
+      "total_count": 10,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.366838",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 88.214.26.54 обнаружен в 3 событиях с сигнатурами из черных списков",
+    "indicator": "88.214.26.54",
+    "raw_data": {
+      "src_ip": "88.214.26.54",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 5",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 57",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 35"
+      ],
+      "total_count": 3,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.367115",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 89.248.168.51 обнаружен в 4 событиях с сигнатурами из черных списков",
+    "indicator": "89.248.168.51",
+    "raw_data": {
+      "src_ip": "89.248.168.51",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 36",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 62",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 18"
+      ],
+      "total_count": 4,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.367361",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 91.245.36.26 обнаружен в 3 событиях с сигнатурами из черных списков",
+    "indicator": "91.245.36.26",
+    "raw_data": {
+      "src_ip": "91.245.36.26",
+      "signatures": [
+        "ET DROP Dshield Block Listed Source group 1",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 67",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 62"
+      ],
+      "total_count": 3,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.367587",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 92.53.76.213 обнаружен в 11 событиях с сигнатурами из черных списков",
+    "indicator": "92.53.76.213",
+    "raw_data": {
+      "src_ip": "92.53.76.213",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 4",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 45",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 19"
+      ],
+      "total_count": 11,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.367794",
+    "action_taken": "",
+    "action_details": ""
+  },
+  {
+    "title": "IP из черного списка",
+    "severity": "CRITICAL",
+    "source": "suricata_pandas",
+    "description": "IP 92.63.194.33 обнаружен в 2 событиях с сигнатурами из черных списков",
+    "indicator": "92.63.194.33",
+    "raw_data": {
+      "src_ip": "92.63.194.33",
+      "signatures": [
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 57",
+        "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 36"
+      ],
+      "total_count": 2,
+      "analysis_type": "blacklisted"
+    },
+    "timestamp": "2026-03-12 02:58:02.368053",
+    "action_taken": "",
+    "action_details": ""
+  }
+]

@@ -1,0 +1,4710 @@
+[
+  {
+    "timestamp": "2026-03-11T05:19:52.781195",
+    "flow_id": 40016113,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "37.49.231.125",
+    "src_port": 64125,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 5060,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2011716,
+      "rev": 3415,
+      "signature": "ET SCAN Sipvicious User-Agent Detected (friendly-scanner)",
+      "category": "Attempted Information Leak",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T22:08:26.108035",
+    "flow_id": 45139519,
+    "in_iface": "eth0",
+    "event_type": "http",
+    "src_ip": "172.16.1.4",
+    "src_port": 40572,
+    "dest_ip": "93.184.216.34",
+    "dest_port": 80,
+    "proto": "TCP",
+    "http": {
+      "hostname": "mirrors.digitalocean.com",
+      "url": "/ubuntu/pool/main/t/tzdata/tzdata_2018i-0ubuntu0.16.04_all.deb",
+      "http_user_agent": "Debian APT-HTTP/1.3 (1.2.29)",
+      "http_method": "GET",
+      "protocol": "HTTP/1.1",
+      "status": "200"
+    }
+  },
+  {
+    "timestamp": "2026-03-11T14:47:53.133700",
+    "flow_id": 55684609,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "82.202.209.155",
+    "src_port": 18915,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 8443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403300,
+      "rev": 3050,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 1",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T12:16:02.380121",
+    "flow_id": 48252816,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "71.6.232.4",
+    "src_port": 20875,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 445,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403456,
+      "rev": 2428,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 79",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T13:13:19.108035",
+    "flow_id": 57144247,
+    "in_iface": "eth0",
+    "event_type": "stats",
+    "src_ip": "10.0.0.2",
+    "dest_ip": "1.1.1.1",
+    "proto": "TCP"
+  },
+  {
+    "timestamp": "2026-03-11T18:42:37.040692",
+    "flow_id": 56404396,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "31.192.108.68",
+    "src_port": 48647,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8080,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403347,
+      "rev": 516,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP UDP group 24",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T21:38:45.954943",
+    "flow_id": 43035324,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "1.169.38.217",
+    "src_port": 24689,
+    "dest_ip": "208.67.222.222",
+    "dest_port": 8443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403370,
+      "rev": 4433,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 36",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T11:33:14.843868",
+    "flow_id": 40161361,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "88.214.26.54",
+    "src_port": 64978,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 3389,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403347,
+      "rev": 183,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP UDP group 24",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T17:57:53.752804",
+    "flow_id": 42977310,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "61.176.222.167",
+    "src_port": 31228,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 1433,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2010935,
+      "rev": 956,
+      "signature": "ET SCAN Suspicious inbound to MSSQL port 1433",
+      "category": "Potentially Bad Traffic",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T17:27:00.568984",
+    "flow_id": 57010584,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "5.141.67.237",
+    "src_port": 27932,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 8080,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403300,
+      "rev": 711,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 1",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T03:13:44.694883",
+    "flow_id": 49724740,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "66.240.236.119",
+    "src_port": 54126,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403450,
+      "rev": 2648,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 76",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T12:04:53.893937",
+    "flow_id": 40770023,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "185.130.5.133",
+    "src_port": 20529,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 23,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403308,
+      "rev": 3802,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 5",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T14:57:46.042282",
+    "flow_id": 45471078,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "88.214.26.54",
+    "src_port": 32471,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 445,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403370,
+      "rev": 1920,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 36",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T20:07:22.688115",
+    "flow_id": 58289600,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "80.211.172.233",
+    "src_port": 25720,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 445,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403412,
+      "rev": 1424,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 57",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T11:23:30.108035",
+    "flow_id": 57041642,
+    "in_iface": "eth0",
+    "event_type": "http",
+    "src_ip": "192.168.1.14",
+    "src_port": 45681,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 80,
+    "proto": "TCP",
+    "http": {
+      "hostname": "registry.npmjs.org",
+      "url": "/express",
+      "http_user_agent": "npm/7.11.2",
+      "http_method": "GET",
+      "protocol": "HTTP/1.1",
+      "status": "200"
+    }
+  },
+  {
+    "timestamp": "2026-03-11T00:04:38.009606",
+    "flow_id": 49156286,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "185.244.25.145",
+    "src_port": 31744,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 23,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403334,
+      "rev": 4511,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 18",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T06:06:25.717762",
+    "flow_id": 59828549,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "92.63.194.33",
+    "src_port": 54454,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 1521,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2010936,
+      "rev": 4473,
+      "signature": "ET SCAN Suspicious inbound to Oracle SQL port 1521",
+      "category": "Potentially Bad Traffic",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T19:03:42.986651",
+    "flow_id": 51014665,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "46.100.43.82",
+    "src_port": 19541,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 445,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403388,
+      "rev": 4402,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 45",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T18:52:28.603715",
+    "flow_id": 50192613,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "82.202.209.155",
+    "src_port": 45467,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403304,
+      "rev": 4200,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 3",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T04:43:33.341598",
+    "flow_id": 43310229,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "80.211.172.233",
+    "src_port": 41746,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 445,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403472,
+      "rev": 4612,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 87",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T17:46:51.074762",
+    "flow_id": 51281333,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "31.163.158.140",
+    "src_port": 56055,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 23,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403451,
+      "rev": 3202,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP UDP group 76",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T01:24:07.841747",
+    "flow_id": 40125438,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "78.128.112.98",
+    "src_port": 14988,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 5060,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2011716,
+      "rev": 123,
+      "signature": "ET SCAN Sipvicious User-Agent Detected (friendly-scanner)",
+      "category": "Attempted Information Leak",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T17:48:18.682778",
+    "flow_id": 55589967,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "37.49.231.125",
+    "src_port": 28106,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403347,
+      "rev": 756,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP UDP group 24",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T06:42:19.770197",
+    "flow_id": 40251953,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "1.169.38.217",
+    "src_port": 41759,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 5432,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2010939,
+      "rev": 4840,
+      "signature": "ET SCAN Suspicious inbound to PostgreSQL port 5432",
+      "category": "Potentially Bad Traffic",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T02:50:30.108035",
+    "flow_id": 49937581,
+    "in_iface": "eth0",
+    "event_type": "http",
+    "src_ip": "172.16.1.3",
+    "src_port": 43082,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 80,
+    "proto": "TCP",
+    "http": {
+      "hostname": "mirrors.digitalocean.com",
+      "url": "/ubuntu/pool/main/t/tzdata/tzdata_2018i-0ubuntu0.16.04_all.deb",
+      "http_user_agent": "Debian APT-HTTP/1.3 (1.2.29)",
+      "http_method": "GET",
+      "protocol": "HTTP/1.1",
+      "status": "200"
+    }
+  },
+  {
+    "timestamp": "2026-03-11T17:33:17.581658",
+    "flow_id": 54558308,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "31.163.158.140",
+    "src_port": 20822,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403396,
+      "rev": 1254,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 49",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T21:23:30.014280",
+    "flow_id": 57037326,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "89.248.168.51",
+    "src_port": 64514,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403450,
+      "rev": 810,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 76",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T10:11:07.391964",
+    "flow_id": 43240391,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "46.100.43.82",
+    "src_port": 19848,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 5432,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2010939,
+      "rev": 2315,
+      "signature": "ET SCAN Suspicious inbound to PostgreSQL port 5432",
+      "category": "Potentially Bad Traffic",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T13:31:37.855694",
+    "flow_id": 51288129,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "185.130.5.133",
+    "src_port": 42924,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8080,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2402001,
+      "rev": 1366,
+      "signature": "ET DROP Dshield Block Listed Source group 1",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T12:04:55.293963",
+    "flow_id": 50872450,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "45.62.211.169",
+    "src_port": 64396,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403422,
+      "rev": 2958,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 62",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T04:51:24.235545",
+    "flow_id": 49351779,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "37.49.231.178",
+    "src_port": 50560,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403362,
+      "rev": 4113,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 32",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T01:47:01.589246",
+    "flow_id": 56553856,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "82.202.209.155",
+    "src_port": 58836,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 1521,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2010936,
+      "rev": 176,
+      "signature": "ET SCAN Suspicious inbound to Oracle SQL port 1521",
+      "category": "Potentially Bad Traffic",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T13:47:45.359782",
+    "flow_id": 49579025,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "58.218.213.6",
+    "src_port": 25687,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 5811,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2002910,
+      "rev": 1242,
+      "signature": "ET SCAN Potential VNC Scan 5800-5820",
+      "category": "Attempted Information Leak",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T10:52:22.746182",
+    "flow_id": 57972607,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "71.6.232.4",
+    "src_port": 34131,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8080,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403347,
+      "rev": 4302,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP UDP group 24",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T11:19:20.489490",
+    "flow_id": 50075958,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "46.100.43.82",
+    "src_port": 51526,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403386,
+      "rev": 3518,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 44",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T03:53:08.946761",
+    "flow_id": 43013404,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "46.100.43.82",
+    "src_port": 55956,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403472,
+      "rev": 3226,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 87",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T01:31:38.808976",
+    "flow_id": 44786493,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "37.49.231.125",
+    "src_port": 55862,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 8443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2402001,
+      "rev": 3985,
+      "signature": "ET DROP Dshield Block Listed Source group 1",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T10:54:33.332898",
+    "flow_id": 41366593,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "5.101.40.81",
+    "src_port": 39825,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403386,
+      "rev": 2936,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 44",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T13:27:23.573073",
+    "flow_id": 51899627,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "5.141.67.237",
+    "src_port": 45282,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403422,
+      "rev": 3173,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 62",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T19:34:58.108035",
+    "flow_id": 48880517,
+    "in_iface": "eth0",
+    "event_type": "flow",
+    "src_ip": "192.168.1.15",
+    "dest_ip": "1.1.1.1",
+    "proto": "TCP"
+  },
+  {
+    "timestamp": "2026-03-11T18:03:46.108035",
+    "flow_id": 50525917,
+    "in_iface": "eth0",
+    "event_type": "tls",
+    "src_ip": "192.168.1.12",
+    "dest_ip": "1.1.1.1",
+    "proto": "TCP"
+  },
+  {
+    "timestamp": "2026-03-11T12:45:00.108035",
+    "flow_id": 55088698,
+    "in_iface": "eth0",
+    "event_type": "dns",
+    "src_ip": "192.168.1.18",
+    "src_port": 49069,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 53,
+    "proto": "UDP",
+    "dns": {
+      "rrname": "npmjs.org",
+      "type": "A",
+      "rcode": 0,
+      "answers": [
+        "1.2.3.4"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-11T03:20:58.225116",
+    "flow_id": 41868178,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "45.62.211.169",
+    "src_port": 58094,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 3389,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403433,
+      "rev": 4148,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP UDP group 67",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T05:12:12.028327",
+    "flow_id": 40063067,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "5.101.40.81",
+    "src_port": 53453,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 8080,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2402000,
+      "rev": 2334,
+      "signature": "ET DROP Dshield Block Listed Source group 1",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T16:00:35.991015",
+    "flow_id": 44379541,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "92.63.194.33",
+    "src_port": 64321,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403396,
+      "rev": 4418,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 49",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T22:12:53.394312",
+    "flow_id": 48102949,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "5.188.206.22",
+    "src_port": 23042,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403346,
+      "rev": 4925,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 24",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T07:25:27.016275",
+    "flow_id": 50490990,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "78.128.112.98",
+    "src_port": 26127,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 23,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403304,
+      "rev": 3033,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 3",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T21:43:39.031576",
+    "flow_id": 56729083,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "185.244.25.145",
+    "src_port": 46916,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 3389,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403452,
+      "rev": 2386,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 77",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T15:14:03.410144",
+    "flow_id": 40705753,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "5.141.67.237",
+    "src_port": 19571,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 23,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403308,
+      "rev": 1893,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 5",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T03:37:00.274435",
+    "flow_id": 49747841,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "91.245.36.26",
+    "src_port": 11791,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 23,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403346,
+      "rev": 2403,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 24",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T12:13:12.775993",
+    "flow_id": 56075936,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "37.49.231.178",
+    "src_port": 14607,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2001219,
+      "rev": 2159,
+      "signature": "ET SCAN Potential SSH Scan",
+      "category": "Attempted Information Leak",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T11:11:04.495622",
+    "flow_id": 52706049,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "37.49.231.178",
+    "src_port": 31541,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403336,
+      "rev": 1387,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 19",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T10:59:55.333827",
+    "flow_id": 41938554,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "31.192.108.68",
+    "src_port": 57341,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 3389,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403388,
+      "rev": 3388,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 45",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T01:38:31.627041",
+    "flow_id": 59307509,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "37.49.231.178",
+    "src_port": 11273,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 23,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2500090,
+      "rev": 506,
+      "signature": "ET COMPROMISED Known Compromised or Hostile Host Traffic TCP group 46",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T19:44:48.181067",
+    "flow_id": 46017642,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "92.63.194.33",
+    "src_port": 54417,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2500090,
+      "rev": 3757,
+      "signature": "ET COMPROMISED Known Compromised or Hostile Host Traffic TCP group 46",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T01:52:36.753301",
+    "flow_id": 58702055,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "78.128.112.98",
+    "src_port": 27660,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403472,
+      "rev": 3981,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 87",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T05:24:48.918788",
+    "flow_id": 53955137,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "88.214.26.54",
+    "src_port": 63691,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2402001,
+      "rev": 384,
+      "signature": "ET DROP Dshield Block Listed Source group 1",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T08:21:58.820733",
+    "flow_id": 49911577,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "185.244.25.167",
+    "src_port": 37340,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8080,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403334,
+      "rev": 3710,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 18",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T08:30:44.350686",
+    "flow_id": 47878557,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "46.100.43.82",
+    "src_port": 57094,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403347,
+      "rev": 4985,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP UDP group 24",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T12:34:19.471487",
+    "flow_id": 50062158,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "80.211.172.233",
+    "src_port": 37904,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403484,
+      "rev": 2111,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 93",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T04:37:50.108035",
+    "flow_id": 47957359,
+    "in_iface": "eth0",
+    "event_type": "stats",
+    "src_ip": "10.0.0.2",
+    "dest_ip": "208.67.222.222",
+    "proto": "TCP"
+  },
+  {
+    "timestamp": "2026-03-10T23:50:21.702800",
+    "flow_id": 55157815,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "71.6.232.4",
+    "src_port": 52994,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403308,
+      "rev": 4041,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 5",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T09:06:44.822611",
+    "flow_id": 58515701,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "31.163.158.140",
+    "src_port": 33621,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403412,
+      "rev": 522,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 57",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T11:47:50.272876",
+    "flow_id": 58280734,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "82.202.209.155",
+    "src_port": 53432,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 445,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403300,
+      "rev": 634,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 1",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T22:28:08.108035",
+    "flow_id": 53995308,
+    "in_iface": "eth0",
+    "event_type": "flow",
+    "src_ip": "192.168.1.12",
+    "dest_ip": "1.1.1.1",
+    "proto": "UDP"
+  },
+  {
+    "timestamp": "2026-03-11T14:13:16.871102",
+    "flow_id": 56890684,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "31.192.108.68",
+    "src_port": 23669,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 445,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403450,
+      "rev": 3452,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 76",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T01:21:29.108035",
+    "flow_id": 41627797,
+    "in_iface": "eth0",
+    "event_type": "flow",
+    "src_ip": "192.168.1.19",
+    "dest_ip": "93.184.216.34",
+    "proto": "UDP"
+  },
+  {
+    "timestamp": "2026-03-11T16:25:10.880017",
+    "flow_id": 51953826,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "58.48.32.199",
+    "src_port": 12981,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8080,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403300,
+      "rev": 3098,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 1",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T11:36:52.693264",
+    "flow_id": 43356832,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "92.63.194.33",
+    "src_port": 63015,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8080,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403370,
+      "rev": 1923,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 36",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T18:27:07.209203",
+    "flow_id": 57587645,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "46.100.43.82",
+    "src_port": 36282,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 161,
+    "proto": "UDP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2101411,
+      "rev": 1160,
+      "signature": "GPL SNMP public access udp",
+      "category": "Attempted Information Leak",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T04:13:10.701702",
+    "flow_id": 52634698,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "92.63.194.33",
+    "src_port": 60658,
+    "dest_ip": "93.184.216.34",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2013504,
+      "rev": 1330,
+      "signature": "ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management",
+      "category": "Not Suspicious Traffic",
+      "severity": 3
+    },
+    "http": {
+      "hostname": "security.ubuntu.com",
+      "url": "/ubuntu/pool/main/l/linux/linux-image-5.4.0-26-generic_5.4.0-26.30_amd64.deb",
+      "http_user_agent": "Wget/1.20.3",
+      "http_method": "GET"
+    },
+    "payload": "base64payload==",
+    "payload_printable": "GET /ubuntu/pool/main/t/tzdata..."
+  },
+  {
+    "timestamp": "2026-03-11T02:08:39.907322",
+    "flow_id": 57963568,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "80.211.172.233",
+    "src_port": 49702,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2013504,
+      "rev": 2129,
+      "signature": "ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management",
+      "category": "Not Suspicious Traffic",
+      "severity": 3
+    },
+    "http": {
+      "hostname": "registry.npmjs.org",
+      "url": "/express",
+      "http_user_agent": "npm/7.11.2",
+      "http_method": "GET"
+    },
+    "payload": "base64payload==",
+    "payload_printable": "GET /ubuntu/pool/main/t/tzdata..."
+  },
+  {
+    "timestamp": "2026-03-10T22:13:31.994203",
+    "flow_id": 47184125,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "37.49.231.178",
+    "src_port": 27245,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 161,
+    "proto": "UDP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2101411,
+      "rev": 184,
+      "signature": "GPL SNMP public access udp",
+      "category": "Attempted Information Leak",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T16:41:58.128668",
+    "flow_id": 58413583,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "78.128.112.98",
+    "src_port": 50648,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 445,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403450,
+      "rev": 4908,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 76",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T08:51:34.108035",
+    "flow_id": 55161145,
+    "in_iface": "eth0",
+    "event_type": "dns",
+    "src_ip": "192.168.1.11",
+    "src_port": 48175,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 53,
+    "proto": "UDP",
+    "dns": {
+      "rrname": "kernel.org",
+      "type": "A",
+      "rcode": 0,
+      "answers": [
+        "1.2.3.4"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-11T04:20:41.808303",
+    "flow_id": 55911359,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "80.211.246.121",
+    "src_port": 37927,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 5060,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2011716,
+      "rev": 2859,
+      "signature": "ET SCAN Sipvicious User-Agent Detected (friendly-scanner)",
+      "category": "Attempted Information Leak",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T02:10:18.971192",
+    "flow_id": 53052075,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "80.211.172.233",
+    "src_port": 62262,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 23,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403370,
+      "rev": 4077,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 36",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T06:11:14.108035",
+    "flow_id": 58069276,
+    "in_iface": "eth0",
+    "event_type": "flow",
+    "src_ip": "172.16.1.3",
+    "dest_ip": "1.1.1.1",
+    "proto": "UDP"
+  },
+  {
+    "timestamp": "2026-03-11T09:28:20.460648",
+    "flow_id": 50276911,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "66.240.236.119",
+    "src_port": 44906,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 5915,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2002911,
+      "rev": 2277,
+      "signature": "ET SCAN Potential VNC Scan 5900-5920",
+      "category": "Attempted Information Leak",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T04:58:55.320533",
+    "flow_id": 43880807,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "58.218.213.6",
+    "src_port": 17658,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403412,
+      "rev": 4074,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 57",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T09:17:11.441329",
+    "flow_id": 58955037,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "185.130.5.133",
+    "src_port": 27348,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2402000,
+      "rev": 3050,
+      "signature": "ET DROP Dshield Block Listed Source group 1",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T12:25:57.108035",
+    "flow_id": 57111229,
+    "in_iface": "eth0",
+    "event_type": "tls",
+    "src_ip": "192.168.1.16",
+    "dest_ip": "208.67.222.222",
+    "proto": "UDP"
+  },
+  {
+    "timestamp": "2026-03-11T12:17:23.219647",
+    "flow_id": 59675080,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "82.202.209.155",
+    "src_port": 24296,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 5060,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2008578,
+      "rev": 967,
+      "signature": "ET SCAN Sipvicious Scan",
+      "category": "Attempted Information Leak",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T00:03:51.082344",
+    "flow_id": 51090600,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "80.211.246.121",
+    "src_port": 10894,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403347,
+      "rev": 3187,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP UDP group 24",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T08:18:20.127904",
+    "flow_id": 43485190,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "91.245.36.26",
+    "src_port": 50724,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 3389,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403470,
+      "rev": 1202,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 86",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T17:53:08.108035",
+    "flow_id": 54363555,
+    "in_iface": "eth0",
+    "event_type": "tls",
+    "src_ip": "192.168.1.14",
+    "dest_ip": "93.184.216.34",
+    "proto": "TCP"
+  },
+  {
+    "timestamp": "2026-03-11T03:20:24.473094",
+    "flow_id": 43636811,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "91.245.36.26",
+    "src_port": 26300,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403306,
+      "rev": 1643,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 4",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T07:02:46.386171",
+    "flow_id": 54900338,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "82.202.209.155",
+    "src_port": 20595,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2001219,
+      "rev": 4305,
+      "signature": "ET SCAN Potential SSH Scan",
+      "category": "Attempted Information Leak",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T22:30:46.835942",
+    "flow_id": 53045700,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "80.211.246.121",
+    "src_port": 17586,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 3389,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403370,
+      "rev": 117,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 36",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T04:40:12.108035",
+    "flow_id": 47032852,
+    "in_iface": "eth0",
+    "event_type": "stats",
+    "src_ip": "192.168.1.18",
+    "dest_ip": "8.8.8.8",
+    "proto": "UDP"
+  },
+  {
+    "timestamp": "2026-03-11T16:43:29.679586",
+    "flow_id": 54151377,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "43.227.231.129",
+    "src_port": 49876,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 5060,
+    "proto": "UDP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2011716,
+      "rev": 4890,
+      "signature": "ET SCAN Sipvicious User-Agent Detected (friendly-scanner)",
+      "category": "Attempted Information Leak",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T21:37:15.923127",
+    "flow_id": 50322361,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "45.62.211.169",
+    "src_port": 36460,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403451,
+      "rev": 2701,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP UDP group 76",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T15:00:04.494899",
+    "flow_id": 53992330,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "58.48.32.199",
+    "src_port": 31527,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2001219,
+      "rev": 4468,
+      "signature": "ET SCAN Potential SSH Scan",
+      "category": "Attempted Information Leak",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T16:35:40.355129",
+    "flow_id": 47249390,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "37.49.231.178",
+    "src_port": 19324,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403347,
+      "rev": 780,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP UDP group 24",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T14:56:18.108035",
+    "flow_id": 53361557,
+    "in_iface": "eth0",
+    "event_type": "stats",
+    "src_ip": "192.168.1.10",
+    "dest_ip": "8.8.8.8",
+    "proto": "TCP"
+  },
+  {
+    "timestamp": "2026-03-11T12:33:57.202414",
+    "flow_id": 53304765,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "59.47.71.13",
+    "src_port": 19806,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403484,
+      "rev": 4875,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 93",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T11:49:02.734709",
+    "flow_id": 50274850,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "58.48.32.199",
+    "src_port": 50843,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 5060,
+    "proto": "UDP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2011716,
+      "rev": 2532,
+      "signature": "ET SCAN Sipvicious User-Agent Detected (friendly-scanner)",
+      "category": "Attempted Information Leak",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T20:31:08.997490",
+    "flow_id": 51446771,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "45.62.211.169",
+    "src_port": 55944,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403334,
+      "rev": 1537,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 18",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T18:05:47.754222",
+    "flow_id": 52482632,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "1.169.38.217",
+    "src_port": 56371,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 445,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403347,
+      "rev": 1978,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP UDP group 24",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T12:23:58.237371",
+    "flow_id": 58852333,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "31.192.108.68",
+    "src_port": 56882,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403412,
+      "rev": 1345,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 57",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T13:57:53.114092",
+    "flow_id": 59970346,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "92.63.194.33",
+    "src_port": 35921,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 3389,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403412,
+      "rev": 3072,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 57",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T02:45:56.605693",
+    "flow_id": 53913461,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "1.169.38.217",
+    "src_port": 21641,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2402001,
+      "rev": 608,
+      "signature": "ET DROP Dshield Block Listed Source group 1",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T10:52:27.210906",
+    "flow_id": 57627200,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "185.244.25.145",
+    "src_port": 45510,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403306,
+      "rev": 4586,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 4",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T20:00:59.590614",
+    "flow_id": 44242907,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "43.227.231.129",
+    "src_port": 35574,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2001219,
+      "rev": 826,
+      "signature": "ET SCAN Potential SSH Scan",
+      "category": "Attempted Information Leak",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T01:12:52.636820",
+    "flow_id": 57321298,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "46.100.43.82",
+    "src_port": 51253,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403450,
+      "rev": 241,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 76",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T22:53:29.283335",
+    "flow_id": 46069723,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "66.240.236.119",
+    "src_port": 48774,
+    "dest_ip": "208.67.222.222",
+    "dest_port": 443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403422,
+      "rev": 3123,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 62",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T01:01:42.405990",
+    "flow_id": 40140786,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "5.188.206.22",
+    "src_port": 46599,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 5060,
+    "proto": "UDP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2008578,
+      "rev": 4725,
+      "signature": "ET SCAN Sipvicious Scan",
+      "category": "Attempted Information Leak",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T03:09:24.108035",
+    "flow_id": 50835874,
+    "in_iface": "eth0",
+    "event_type": "flow",
+    "src_ip": "192.168.1.16",
+    "dest_ip": "1.1.1.1",
+    "proto": "TCP"
+  },
+  {
+    "timestamp": "2026-03-10T22:53:30.865624",
+    "flow_id": 41347045,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "31.163.158.140",
+    "src_port": 32552,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 5432,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2010939,
+      "rev": 3722,
+      "signature": "ET SCAN Suspicious inbound to PostgreSQL port 5432",
+      "category": "Potentially Bad Traffic",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T17:16:28.422173",
+    "flow_id": 43530474,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "92.63.194.33",
+    "src_port": 32636,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 3306,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2010937,
+      "rev": 4528,
+      "signature": "ET SCAN Suspicious inbound to mySQL port 3306",
+      "category": "Potentially Bad Traffic",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T21:21:57.599923",
+    "flow_id": 41865817,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "185.244.25.167",
+    "src_port": 59285,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403451,
+      "rev": 3438,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP UDP group 76",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T01:35:28.193526",
+    "flow_id": 54079584,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "71.6.232.4",
+    "src_port": 22744,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403422,
+      "rev": 1290,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 62",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T08:46:45.108035",
+    "flow_id": 42772398,
+    "in_iface": "eth0",
+    "event_type": "stats",
+    "src_ip": "10.0.0.6",
+    "dest_ip": "208.67.222.222",
+    "proto": "TCP"
+  },
+  {
+    "timestamp": "2026-03-11T18:44:23.108035",
+    "flow_id": 51126813,
+    "in_iface": "eth0",
+    "event_type": "http",
+    "src_ip": "192.168.1.10",
+    "src_port": 42657,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 80,
+    "proto": "TCP",
+    "http": {
+      "hostname": "mirrors.digitalocean.com",
+      "url": "/ubuntu/pool/main/t/tzdata/tzdata_2018i-0ubuntu0.16.04_all.deb",
+      "http_user_agent": "Debian APT-HTTP/1.3 (1.2.29)",
+      "http_method": "GET",
+      "protocol": "HTTP/1.1",
+      "status": "200"
+    }
+  },
+  {
+    "timestamp": "2026-03-10T22:27:08.623762",
+    "flow_id": 46666363,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "92.53.76.213",
+    "src_port": 16433,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8080,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403450,
+      "rev": 2863,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 76",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T01:21:18.234070",
+    "flow_id": 53545809,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "91.245.36.26",
+    "src_port": 10582,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403456,
+      "rev": 1642,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 79",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T09:35:15.528943",
+    "flow_id": 47735374,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "88.202.190.148",
+    "src_port": 21198,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403336,
+      "rev": 3393,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 19",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T08:47:31.761973",
+    "flow_id": 56777166,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "46.100.43.82",
+    "src_port": 58815,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 8443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2402000,
+      "rev": 187,
+      "signature": "ET DROP Dshield Block Listed Source group 1",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T18:41:17.384855",
+    "flow_id": 44639192,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "92.63.194.33",
+    "src_port": 33909,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403486,
+      "rev": 1422,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 94",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T16:59:21.480223",
+    "flow_id": 59292352,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "92.53.76.213",
+    "src_port": 62002,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403336,
+      "rev": 1798,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 19",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T13:54:46.965580",
+    "flow_id": 50132610,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "5.101.40.81",
+    "src_port": 23609,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 5432,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2010939,
+      "rev": 1938,
+      "signature": "ET SCAN Suspicious inbound to PostgreSQL port 5432",
+      "category": "Potentially Bad Traffic",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T08:05:57.378377",
+    "flow_id": 51978797,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "80.211.246.121",
+    "src_port": 17993,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 445,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403456,
+      "rev": 2986,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 79",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T17:33:19.791776",
+    "flow_id": 43629608,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "5.188.206.22",
+    "src_port": 26921,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403486,
+      "rev": 56,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 94",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T22:51:08.360904",
+    "flow_id": 54921332,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "31.192.108.68",
+    "src_port": 45132,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403300,
+      "rev": 3373,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 1",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T17:36:47.511705",
+    "flow_id": 53132179,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "5.101.40.81",
+    "src_port": 23193,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 3389,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2402000,
+      "rev": 4682,
+      "signature": "ET DROP Dshield Block Listed Source group 1",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T20:47:29.108035",
+    "flow_id": 50587827,
+    "in_iface": "eth0",
+    "event_type": "dns",
+    "src_ip": "192.168.1.17",
+    "src_port": 44236,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 53,
+    "proto": "UDP",
+    "dns": {
+      "rrname": "ubuntu.com",
+      "type": "A",
+      "rcode": 0,
+      "answers": [
+        "1.2.3.4"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-10T22:06:13.430632",
+    "flow_id": 53917850,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "88.202.190.148",
+    "src_port": 43800,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 1433,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2010935,
+      "rev": 2070,
+      "signature": "ET SCAN Suspicious inbound to MSSQL port 1433",
+      "category": "Potentially Bad Traffic",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T09:46:57.480782",
+    "flow_id": 59699635,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "82.202.209.155",
+    "src_port": 38779,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 445,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403444,
+      "rev": 779,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 73",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T13:03:04.060154",
+    "flow_id": 43572966,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "80.211.246.121",
+    "src_port": 43521,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 23,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403336,
+      "rev": 4856,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 19",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T20:17:17.108035",
+    "flow_id": 54923422,
+    "in_iface": "eth0",
+    "event_type": "tls",
+    "src_ip": "192.168.1.17",
+    "dest_ip": "93.184.216.34",
+    "proto": "UDP"
+  },
+  {
+    "timestamp": "2026-03-11T18:40:14.602833",
+    "flow_id": 49763012,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "89.248.168.51",
+    "src_port": 57670,
+    "dest_ip": "208.67.222.222",
+    "dest_port": 1433,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2010935,
+      "rev": 4464,
+      "signature": "ET SCAN Suspicious inbound to MSSQL port 1433",
+      "category": "Potentially Bad Traffic",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T05:53:53.456374",
+    "flow_id": 42561968,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "5.188.206.22",
+    "src_port": 50256,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 23,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403334,
+      "rev": 3258,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 18",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T21:03:29.108035",
+    "flow_id": 42222302,
+    "in_iface": "eth0",
+    "event_type": "http",
+    "src_ip": "172.16.1.5",
+    "src_port": 43141,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 80,
+    "proto": "TCP",
+    "http": {
+      "hostname": "mirrors.digitalocean.com",
+      "url": "/ubuntu/pool/main/t/tzdata/tzdata_2018i-0ubuntu0.16.04_all.deb",
+      "http_user_agent": "Debian APT-HTTP/1.3 (1.2.29)",
+      "http_method": "GET",
+      "protocol": "HTTP/1.1",
+      "status": "200"
+    }
+  },
+  {
+    "timestamp": "2026-03-11T19:07:25.108585",
+    "flow_id": 45818453,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "59.47.71.13",
+    "src_port": 18162,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403412,
+      "rev": 3898,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 57",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T17:32:19.217014",
+    "flow_id": 58468791,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "88.214.26.54",
+    "src_port": 43722,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 3389,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403346,
+      "rev": 3868,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 24",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T22:21:01.030731",
+    "flow_id": 59490850,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "88.202.190.148",
+    "src_port": 63445,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403334,
+      "rev": 4851,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 18",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T21:10:42.280014",
+    "flow_id": 41323734,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "61.176.222.167",
+    "src_port": 49270,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 5432,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2010939,
+      "rev": 2884,
+      "signature": "ET SCAN Suspicious inbound to PostgreSQL port 5432",
+      "category": "Potentially Bad Traffic",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T04:22:41.001968",
+    "flow_id": 47272864,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "37.49.231.178",
+    "src_port": 57418,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 3306,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2010937,
+      "rev": 4526,
+      "signature": "ET SCAN Suspicious inbound to mySQL port 3306",
+      "category": "Potentially Bad Traffic",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T12:10:25.899342",
+    "flow_id": 43691847,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "71.6.199.23",
+    "src_port": 55383,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2013504,
+      "rev": 4522,
+      "signature": "ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management",
+      "category": "Not Suspicious Traffic",
+      "severity": 3
+    },
+    "http": {
+      "hostname": "mirrors.digitalocean.com",
+      "url": "/ubuntu/pool/main/t/tzdata/tzdata_2018i-0ubuntu0.16.04_all.deb",
+      "http_user_agent": "Debian APT-HTTP/1.3 (1.2.29)",
+      "http_method": "GET"
+    },
+    "payload": "base64payload==",
+    "payload_printable": "GET /ubuntu/pool/main/t/tzdata..."
+  },
+  {
+    "timestamp": "2026-03-11T05:53:10.108035",
+    "flow_id": 40582835,
+    "in_iface": "eth0",
+    "event_type": "flow",
+    "src_ip": "172.16.1.2",
+    "dest_ip": "1.1.1.1",
+    "proto": "TCP"
+  },
+  {
+    "timestamp": "2026-03-11T14:58:26.108035",
+    "flow_id": 55410640,
+    "in_iface": "eth0",
+    "event_type": "dns",
+    "src_ip": "172.16.1.4",
+    "src_port": 49009,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 53,
+    "proto": "UDP",
+    "dns": {
+      "rrname": "pypi.org",
+      "type": "A",
+      "rcode": 0,
+      "answers": [
+        "1.2.3.4"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-11T14:39:50.016702",
+    "flow_id": 42392702,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "185.244.25.167",
+    "src_port": 23091,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 23,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403452,
+      "rev": 996,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 77",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T05:48:49.182204",
+    "flow_id": 56937199,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "89.248.168.51",
+    "src_port": 40443,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403304,
+      "rev": 336,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 3",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T23:02:42.028561",
+    "flow_id": 45522865,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "88.214.26.54",
+    "src_port": 15628,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 1521,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2010936,
+      "rev": 1996,
+      "signature": "ET SCAN Suspicious inbound to Oracle SQL port 1521",
+      "category": "Potentially Bad Traffic",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T17:02:27.666324",
+    "flow_id": 47115308,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "43.227.231.129",
+    "src_port": 59425,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 23,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403336,
+      "rev": 2744,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 19",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T06:32:03.108035",
+    "flow_id": 47163289,
+    "in_iface": "eth0",
+    "event_type": "dns",
+    "src_ip": "10.0.0.4",
+    "src_port": 48650,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 53,
+    "proto": "UDP",
+    "dns": {
+      "rrname": "npmjs.org",
+      "type": "A",
+      "rcode": 0,
+      "answers": [
+        "1.2.3.4"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-11T19:38:48.010563",
+    "flow_id": 47749643,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "8.42.77.171",
+    "src_port": 10965,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2402000,
+      "rev": 4141,
+      "signature": "ET DROP Dshield Block Listed Source group 1",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T19:41:10.381261",
+    "flow_id": 46082130,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "185.130.5.133",
+    "src_port": 58968,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8080,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403410,
+      "rev": 1354,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 56",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T02:08:29.357767",
+    "flow_id": 44185086,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "92.53.76.213",
+    "src_port": 28117,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 8080,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403444,
+      "rev": 4714,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 73",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T23:06:22.108035",
+    "flow_id": 42401046,
+    "in_iface": "eth0",
+    "event_type": "tls",
+    "src_ip": "192.168.1.19",
+    "dest_ip": "208.67.222.222",
+    "proto": "TCP"
+  },
+  {
+    "timestamp": "2026-03-10T20:53:10.108035",
+    "flow_id": 55725973,
+    "in_iface": "eth0",
+    "event_type": "http",
+    "src_ip": "192.168.1.17",
+    "src_port": 47464,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 80,
+    "proto": "TCP",
+    "http": {
+      "hostname": "security.ubuntu.com",
+      "url": "/ubuntu/pool/main/l/linux/linux-image-5.4.0-26-generic_5.4.0-26.30_amd64.deb",
+      "http_user_agent": "Wget/1.20.3",
+      "http_method": "GET",
+      "protocol": "HTTP/1.1",
+      "status": "200"
+    }
+  },
+  {
+    "timestamp": "2026-03-11T02:14:33.288528",
+    "flow_id": 46863021,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "92.63.194.33",
+    "src_port": 37814,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 8080,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403422,
+      "rev": 1762,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 62",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T05:20:37.595678",
+    "flow_id": 53541121,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "80.211.246.121",
+    "src_port": 17712,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 3389,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403484,
+      "rev": 590,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 93",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T14:10:54.832204",
+    "flow_id": 42144468,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "46.100.43.82",
+    "src_port": 43027,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 3389,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403362,
+      "rev": 1016,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 32",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T21:12:26.263134",
+    "flow_id": 41285490,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "58.218.213.6",
+    "src_port": 60110,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2013504,
+      "rev": 700,
+      "signature": "ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management",
+      "category": "Not Suspicious Traffic",
+      "severity": 3
+    },
+    "http": {
+      "hostname": "pypi.org",
+      "url": "/packages/pip/",
+      "http_user_agent": "pip/21.0.1",
+      "http_method": "GET"
+    },
+    "payload": "base64payload==",
+    "payload_printable": "GET /ubuntu/pool/main/t/tzdata..."
+  },
+  {
+    "timestamp": "2026-03-11T01:24:23.087561",
+    "flow_id": 47427253,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "31.192.108.68",
+    "src_port": 16461,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 8080,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403306,
+      "rev": 83,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 4",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T20:56:46.108035",
+    "flow_id": 57472137,
+    "in_iface": "eth0",
+    "event_type": "http",
+    "src_ip": "172.16.1.6",
+    "src_port": 40153,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 80,
+    "proto": "TCP",
+    "http": {
+      "hostname": "registry.npmjs.org",
+      "url": "/express",
+      "http_user_agent": "npm/7.11.2",
+      "http_method": "GET",
+      "protocol": "HTTP/1.1",
+      "status": "200"
+    }
+  },
+  {
+    "timestamp": "2026-03-11T17:10:37.816949",
+    "flow_id": 49080414,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "46.100.43.82",
+    "src_port": 31734,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 445,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403304,
+      "rev": 2526,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 3",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T15:20:51.964138",
+    "flow_id": 42380069,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "5.188.206.22",
+    "src_port": 48649,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403410,
+      "rev": 548,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 56",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T16:51:18.101112",
+    "flow_id": 43230403,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "45.62.211.169",
+    "src_port": 16720,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403396,
+      "rev": 2454,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 49",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T20:20:43.891628",
+    "flow_id": 50240008,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "5.101.40.81",
+    "src_port": 64367,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 445,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403450,
+      "rev": 1116,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 76",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T09:57:40.212658",
+    "flow_id": 40162754,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "5.141.67.237",
+    "src_port": 28379,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 3389,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403422,
+      "rev": 807,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 62",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T02:48:06.852612",
+    "flow_id": 55556455,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "91.245.36.26",
+    "src_port": 43250,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 23,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403336,
+      "rev": 3042,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 19",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T19:15:56.140109",
+    "flow_id": 40859912,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "5.188.206.22",
+    "src_port": 52958,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8080,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403368,
+      "rev": 127,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 35",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T02:30:28.212538",
+    "flow_id": 45986163,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "8.42.77.171",
+    "src_port": 24202,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 3389,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403432,
+      "rev": 4684,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 67",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T01:38:17.108035",
+    "flow_id": 51222998,
+    "in_iface": "eth0",
+    "event_type": "flow",
+    "src_ip": "192.168.1.19",
+    "dest_ip": "8.8.8.8",
+    "proto": "TCP"
+  },
+  {
+    "timestamp": "2026-03-11T03:55:37.820666",
+    "flow_id": 50845319,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "80.82.77.33",
+    "src_port": 49195,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403304,
+      "rev": 4617,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 3",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T10:08:27.263448",
+    "flow_id": 50869176,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "88.202.190.148",
+    "src_port": 49854,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403484,
+      "rev": 439,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 93",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T20:34:26.108035",
+    "flow_id": 40928737,
+    "in_iface": "eth0",
+    "event_type": "stats",
+    "src_ip": "192.168.1.12",
+    "dest_ip": "1.1.1.1",
+    "proto": "TCP"
+  },
+  {
+    "timestamp": "2026-03-11T11:40:21.715984",
+    "flow_id": 46652886,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "185.244.25.167",
+    "src_port": 30429,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 23,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2500090,
+      "rev": 4598,
+      "signature": "ET COMPROMISED Known Compromised or Hostile Host Traffic TCP group 46",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T10:47:28.797565",
+    "flow_id": 42758343,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "37.49.231.178",
+    "src_port": 60720,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 3306,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2010937,
+      "rev": 3643,
+      "signature": "ET SCAN Suspicious inbound to mySQL port 3306",
+      "category": "Potentially Bad Traffic",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T03:15:38.532663",
+    "flow_id": 54322893,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "61.219.11.151",
+    "src_port": 15933,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 3389,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403347,
+      "rev": 367,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP UDP group 24",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T04:42:42.282999",
+    "flow_id": 48027420,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "71.6.232.4",
+    "src_port": 44912,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403334,
+      "rev": 2194,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 18",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T01:33:47.108035",
+    "flow_id": 44866265,
+    "in_iface": "eth0",
+    "event_type": "stats",
+    "src_ip": "192.168.1.17",
+    "dest_ip": "208.67.222.222",
+    "proto": "TCP"
+  },
+  {
+    "timestamp": "2026-03-11T05:13:06.430661",
+    "flow_id": 58268332,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "37.49.231.125",
+    "src_port": 56607,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 3389,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403306,
+      "rev": 615,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 4",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T13:31:49.541558",
+    "flow_id": 48438368,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "31.192.108.68",
+    "src_port": 59180,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2402000,
+      "rev": 819,
+      "signature": "ET DROP Dshield Block Listed Source group 1",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T19:37:58.958869",
+    "flow_id": 46229305,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "46.100.43.82",
+    "src_port": 49627,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 23,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403410,
+      "rev": 4793,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 56",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T13:54:25.179010",
+    "flow_id": 45648245,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "92.53.76.213",
+    "src_port": 16928,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403412,
+      "rev": 2152,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 57",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T22:56:42.108035",
+    "flow_id": 40592006,
+    "in_iface": "eth0",
+    "event_type": "tls",
+    "src_ip": "192.168.1.12",
+    "dest_ip": "93.184.216.34",
+    "proto": "UDP"
+  },
+  {
+    "timestamp": "2026-03-11T09:20:06.943410",
+    "flow_id": 42306905,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "5.141.67.237",
+    "src_port": 11062,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403444,
+      "rev": 134,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 73",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T07:34:14.108035",
+    "flow_id": 43128938,
+    "in_iface": "eth0",
+    "event_type": "tls",
+    "src_ip": "192.168.1.12",
+    "dest_ip": "8.8.8.8",
+    "proto": "TCP"
+  },
+  {
+    "timestamp": "2026-03-11T04:34:01.108035",
+    "flow_id": 50389389,
+    "in_iface": "eth0",
+    "event_type": "dns",
+    "src_ip": "192.168.1.16",
+    "src_port": 40719,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 53,
+    "proto": "UDP",
+    "dns": {
+      "rrname": "docker.com",
+      "type": "A",
+      "rcode": 0,
+      "answers": [
+        "1.2.3.4"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-11T07:39:41.684854",
+    "flow_id": 56243416,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "31.163.158.140",
+    "src_port": 56767,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 23,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403308,
+      "rev": 3012,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 5",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T00:07:48.710354",
+    "flow_id": 57147010,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "8.42.77.171",
+    "src_port": 48719,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 5915,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2002911,
+      "rev": 4879,
+      "signature": "ET SCAN Potential VNC Scan 5900-5920",
+      "category": "Attempted Information Leak",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T19:49:30.547686",
+    "flow_id": 48215712,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "61.219.11.151",
+    "src_port": 26066,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403386,
+      "rev": 326,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 44",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T20:10:57.108035",
+    "flow_id": 52260356,
+    "in_iface": "eth0",
+    "event_type": "stats",
+    "src_ip": "172.16.1.2",
+    "dest_ip": "208.67.222.222",
+    "proto": "UDP"
+  },
+  {
+    "timestamp": "2026-03-11T08:04:37.112281",
+    "flow_id": 47411536,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "92.63.194.33",
+    "src_port": 24536,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 23,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403450,
+      "rev": 527,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 76",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T06:59:25.117793",
+    "flow_id": 42985712,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "37.49.231.178",
+    "src_port": 44780,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8080,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403432,
+      "rev": 2324,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 67",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T11:19:46.003016",
+    "flow_id": 40607993,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "5.101.40.81",
+    "src_port": 27842,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 3306,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2010937,
+      "rev": 4408,
+      "signature": "ET SCAN Suspicious inbound to mySQL port 3306",
+      "category": "Potentially Bad Traffic",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T06:17:38.770614",
+    "flow_id": 43985966,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "5.188.206.22",
+    "src_port": 41741,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 3389,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403370,
+      "rev": 3202,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 36",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T22:48:14.972674",
+    "flow_id": 44894848,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "1.169.38.217",
+    "src_port": 32718,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 3389,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403444,
+      "rev": 4815,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 73",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T11:49:37.108035",
+    "flow_id": 43144890,
+    "in_iface": "eth0",
+    "event_type": "dns",
+    "src_ip": "172.16.1.5",
+    "src_port": 47233,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 53,
+    "proto": "UDP",
+    "dns": {
+      "rrname": "microsoft.com",
+      "type": "A",
+      "rcode": 0,
+      "answers": [
+        "1.2.3.4"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-11T09:08:14.054211",
+    "flow_id": 44336890,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "37.49.231.178",
+    "src_port": 55327,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 5915,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2002911,
+      "rev": 250,
+      "signature": "ET SCAN Potential VNC Scan 5900-5920",
+      "category": "Attempted Information Leak",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T05:47:22.356183",
+    "flow_id": 51621560,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "80.211.246.121",
+    "src_port": 18330,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2013504,
+      "rev": 4607,
+      "signature": "ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management",
+      "category": "Not Suspicious Traffic",
+      "severity": 3
+    },
+    "http": {
+      "hostname": "registry.npmjs.org",
+      "url": "/express",
+      "http_user_agent": "npm/7.11.2",
+      "http_method": "GET"
+    },
+    "payload": "base64payload==",
+    "payload_printable": "GET /ubuntu/pool/main/t/tzdata..."
+  },
+  {
+    "timestamp": "2026-03-11T13:48:57.187736",
+    "flow_id": 45389895,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "8.42.77.171",
+    "src_port": 44225,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403346,
+      "rev": 4719,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 24",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T04:27:15.347650",
+    "flow_id": 40517274,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "185.130.5.133",
+    "src_port": 61526,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403304,
+      "rev": 4600,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 3",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T05:00:30.108035",
+    "flow_id": 56175124,
+    "in_iface": "eth0",
+    "event_type": "flow",
+    "src_ip": "172.16.1.2",
+    "dest_ip": "8.8.8.8",
+    "proto": "TCP"
+  },
+  {
+    "timestamp": "2026-03-10T20:32:57.108035",
+    "flow_id": 51458954,
+    "in_iface": "eth0",
+    "event_type": "stats",
+    "src_ip": "10.0.0.5",
+    "dest_ip": "208.67.222.222",
+    "proto": "UDP"
+  },
+  {
+    "timestamp": "2026-03-11T19:04:32.108035",
+    "flow_id": 53545211,
+    "in_iface": "eth0",
+    "event_type": "http",
+    "src_ip": "192.168.1.17",
+    "src_port": 41159,
+    "dest_ip": "93.184.216.34",
+    "dest_port": 80,
+    "proto": "TCP",
+    "http": {
+      "hostname": "registry.npmjs.org",
+      "url": "/express",
+      "http_user_agent": "npm/7.11.2",
+      "http_method": "GET",
+      "protocol": "HTTP/1.1",
+      "status": "200"
+    }
+  },
+  {
+    "timestamp": "2026-03-11T03:54:18.930273",
+    "flow_id": 48726183,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "88.202.190.148",
+    "src_port": 21681,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 3389,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403304,
+      "rev": 3512,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 3",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T03:52:55.157418",
+    "flow_id": 51795391,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "45.62.211.169",
+    "src_port": 62111,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2500090,
+      "rev": 748,
+      "signature": "ET COMPROMISED Known Compromised or Hostile Host Traffic TCP group 46",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T00:55:51.108035",
+    "flow_id": 54281537,
+    "in_iface": "eth0",
+    "event_type": "dns",
+    "src_ip": "172.16.1.2",
+    "src_port": 48370,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 53,
+    "proto": "UDP",
+    "dns": {
+      "rrname": "cloudflare.com",
+      "type": "A",
+      "rcode": 0,
+      "answers": [
+        "1.2.3.4"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-11T11:55:24.797938",
+    "flow_id": 41893279,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "31.192.108.68",
+    "src_port": 31593,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8080,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403304,
+      "rev": 106,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 3",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T01:44:15.628254",
+    "flow_id": 44753284,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "80.211.246.121",
+    "src_port": 55985,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 445,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403362,
+      "rev": 214,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 32",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T14:17:39.087743",
+    "flow_id": 52497086,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "37.49.231.178",
+    "src_port": 39754,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403456,
+      "rev": 679,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 79",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T12:27:26.848084",
+    "flow_id": 57483805,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "185.130.5.133",
+    "src_port": 46486,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403482,
+      "rev": 3714,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 92",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T11:08:13.327585",
+    "flow_id": 59635089,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "5.188.206.22",
+    "src_port": 13233,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 445,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403484,
+      "rev": 900,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 93",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T16:58:58.989687",
+    "flow_id": 57282592,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "80.211.172.233",
+    "src_port": 11751,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 445,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403470,
+      "rev": 3361,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 86",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T20:34:46.108035",
+    "flow_id": 43019527,
+    "in_iface": "eth0",
+    "event_type": "http",
+    "src_ip": "192.168.1.15",
+    "src_port": 46414,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 80,
+    "proto": "TCP",
+    "http": {
+      "hostname": "security.ubuntu.com",
+      "url": "/ubuntu/pool/main/l/linux/linux-image-5.4.0-26-generic_5.4.0-26.30_amd64.deb",
+      "http_user_agent": "Wget/1.20.3",
+      "http_method": "GET",
+      "protocol": "HTTP/1.1",
+      "status": "200"
+    }
+  },
+  {
+    "timestamp": "2026-03-11T18:02:23.288234",
+    "flow_id": 45617490,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "92.63.194.33",
+    "src_port": 32696,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403306,
+      "rev": 87,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 4",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T06:01:12.108035",
+    "flow_id": 52013953,
+    "in_iface": "eth0",
+    "event_type": "dns",
+    "src_ip": "192.168.1.12",
+    "src_port": 47863,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 53,
+    "proto": "UDP",
+    "dns": {
+      "rrname": "google.com",
+      "type": "A",
+      "rcode": 0,
+      "answers": [
+        "1.2.3.4"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-11T18:48:29.108035",
+    "flow_id": 52535060,
+    "in_iface": "eth0",
+    "event_type": "stats",
+    "src_ip": "192.168.1.11",
+    "dest_ip": "8.8.8.8",
+    "proto": "TCP"
+  },
+  {
+    "timestamp": "2026-03-11T04:25:38.217745",
+    "flow_id": 44497275,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "37.49.231.125",
+    "src_port": 57321,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 5060,
+    "proto": "UDP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2008578,
+      "rev": 1106,
+      "signature": "ET SCAN Sipvicious Scan",
+      "category": "Attempted Information Leak",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T23:19:04.108035",
+    "flow_id": 49715362,
+    "in_iface": "eth0",
+    "event_type": "stats",
+    "src_ip": "172.16.1.6",
+    "dest_ip": "93.184.216.34",
+    "proto": "TCP"
+  },
+  {
+    "timestamp": "2026-03-11T03:07:22.562802",
+    "flow_id": 45887861,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "45.62.211.169",
+    "src_port": 51996,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 3389,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403452,
+      "rev": 2895,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 77",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T14:20:46.463519",
+    "flow_id": 44178646,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "92.63.194.33",
+    "src_port": 22436,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 3306,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2010937,
+      "rev": 2496,
+      "signature": "ET SCAN Suspicious inbound to mySQL port 3306",
+      "category": "Potentially Bad Traffic",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T22:58:23.184253",
+    "flow_id": 59701458,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "59.47.71.13",
+    "src_port": 55990,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 445,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403346,
+      "rev": 1319,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 24",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T09:29:18.554189",
+    "flow_id": 51786912,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "80.211.246.121",
+    "src_port": 15116,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 8080,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2402001,
+      "rev": 424,
+      "signature": "ET DROP Dshield Block Listed Source group 1",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T05:33:42.108035",
+    "flow_id": 45609225,
+    "in_iface": "eth0",
+    "event_type": "tls",
+    "src_ip": "192.168.1.12",
+    "dest_ip": "93.184.216.34",
+    "proto": "UDP"
+  },
+  {
+    "timestamp": "2026-03-11T03:09:24.254446",
+    "flow_id": 48413909,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "31.163.158.140",
+    "src_port": 40037,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 3389,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403470,
+      "rev": 886,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 86",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T23:40:09.190428",
+    "flow_id": 52497700,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "88.214.26.54",
+    "src_port": 48551,
+    "dest_ip": "93.184.216.34",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2013504,
+      "rev": 3944,
+      "signature": "ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management",
+      "category": "Not Suspicious Traffic",
+      "severity": 3
+    },
+    "http": {
+      "hostname": "pypi.org",
+      "url": "/packages/pip/",
+      "http_user_agent": "pip/21.0.1",
+      "http_method": "GET"
+    },
+    "payload": "base64payload==",
+    "payload_printable": "GET /ubuntu/pool/main/t/tzdata..."
+  },
+  {
+    "timestamp": "2026-03-11T16:27:11.711331",
+    "flow_id": 54959879,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "82.202.209.155",
+    "src_port": 49139,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 5060,
+    "proto": "UDP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2008578,
+      "rev": 3035,
+      "signature": "ET SCAN Sipvicious Scan",
+      "category": "Attempted Information Leak",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T13:20:52.541047",
+    "flow_id": 54000927,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "92.63.194.33",
+    "src_port": 24613,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 1433,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2010935,
+      "rev": 793,
+      "signature": "ET SCAN Suspicious inbound to MSSQL port 1433",
+      "category": "Potentially Bad Traffic",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T20:21:14.078409",
+    "flow_id": 53848525,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "8.42.77.171",
+    "src_port": 41326,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403433,
+      "rev": 2917,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP UDP group 67",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T23:00:44.809013",
+    "flow_id": 58400539,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "185.244.25.167",
+    "src_port": 60528,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 8443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403362,
+      "rev": 2160,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 32",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T14:28:52.129619",
+    "flow_id": 43650291,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "89.248.168.51",
+    "src_port": 26863,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403470,
+      "rev": 4205,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 86",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T07:19:29.108035",
+    "flow_id": 47228013,
+    "in_iface": "eth0",
+    "event_type": "flow",
+    "src_ip": "192.168.1.17",
+    "dest_ip": "208.67.222.222",
+    "proto": "TCP"
+  },
+  {
+    "timestamp": "2026-03-11T04:49:00.203089",
+    "flow_id": 47179611,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "58.48.32.199",
+    "src_port": 11011,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 1521,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2010936,
+      "rev": 3036,
+      "signature": "ET SCAN Suspicious inbound to Oracle SQL port 1521",
+      "category": "Potentially Bad Traffic",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T10:31:20.108035",
+    "flow_id": 46610963,
+    "in_iface": "eth0",
+    "event_type": "http",
+    "src_ip": "10.0.0.5",
+    "src_port": 42370,
+    "dest_ip": "93.184.216.34",
+    "dest_port": 80,
+    "proto": "TCP",
+    "http": {
+      "hostname": "registry.npmjs.org",
+      "url": "/express",
+      "http_user_agent": "npm/7.11.2",
+      "http_method": "GET",
+      "protocol": "HTTP/1.1",
+      "status": "200"
+    }
+  },
+  {
+    "timestamp": "2026-03-11T18:09:18.840861",
+    "flow_id": 49080353,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "58.218.213.6",
+    "src_port": 41592,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 5432,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2010939,
+      "rev": 4180,
+      "signature": "ET SCAN Suspicious inbound to PostgreSQL port 5432",
+      "category": "Potentially Bad Traffic",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T08:19:32.880607",
+    "flow_id": 57440450,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "61.176.222.167",
+    "src_port": 26794,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 23,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403304,
+      "rev": 1430,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 3",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T13:53:00.425361",
+    "flow_id": 48280448,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "80.211.246.121",
+    "src_port": 37150,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403304,
+      "rev": 3348,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 3",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T09:28:35.108035",
+    "flow_id": 53498690,
+    "in_iface": "eth0",
+    "event_type": "http",
+    "src_ip": "192.168.1.14",
+    "src_port": 42389,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 80,
+    "proto": "TCP",
+    "http": {
+      "hostname": "pypi.org",
+      "url": "/packages/pip/",
+      "http_user_agent": "pip/21.0.1",
+      "http_method": "GET",
+      "protocol": "HTTP/1.1",
+      "status": "200"
+    }
+  },
+  {
+    "timestamp": "2026-03-11T16:29:02.760351",
+    "flow_id": 52622652,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "185.244.25.167",
+    "src_port": 57596,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403362,
+      "rev": 831,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 32",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T08:24:01.161028",
+    "flow_id": 48160073,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "88.202.190.148",
+    "src_port": 45610,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 445,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403452,
+      "rev": 3060,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 77",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T07:23:15.536039",
+    "flow_id": 44266046,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "61.176.222.167",
+    "src_port": 59732,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403477,
+      "rev": 322,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP UDP group 89",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T06:05:40.108035",
+    "flow_id": 53440544,
+    "in_iface": "eth0",
+    "event_type": "stats",
+    "src_ip": "172.16.1.5",
+    "dest_ip": "1.1.1.1",
+    "proto": "TCP"
+  },
+  {
+    "timestamp": "2026-03-11T04:56:43.441999",
+    "flow_id": 52802051,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "43.227.231.129",
+    "src_port": 29905,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 23,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403304,
+      "rev": 5000,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 3",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T12:26:38.751668",
+    "flow_id": 57041145,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "46.100.43.82",
+    "src_port": 37737,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403388,
+      "rev": 799,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 45",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T22:40:33.108035",
+    "flow_id": 44972848,
+    "in_iface": "eth0",
+    "event_type": "dns",
+    "src_ip": "10.0.0.6",
+    "src_port": 41365,
+    "dest_ip": "8.8.8.8",
+    "dest_port": 53,
+    "proto": "UDP",
+    "dns": {
+      "rrname": "python.org",
+      "type": "A",
+      "rcode": 0,
+      "answers": [
+        "1.2.3.4"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-11T17:45:14.615304",
+    "flow_id": 42821910,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "37.49.231.125",
+    "src_port": 47245,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403456,
+      "rev": 4568,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 79",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T09:59:39.795133",
+    "flow_id": 44790360,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "80.211.246.121",
+    "src_port": 36694,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 3389,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403444,
+      "rev": 351,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 73",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T02:57:08.117294",
+    "flow_id": 42314728,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "185.244.25.167",
+    "src_port": 31996,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 445,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403334,
+      "rev": 4576,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 18",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T11:43:00.271834",
+    "flow_id": 51496178,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "89.248.168.51",
+    "src_port": 20089,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 445,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403308,
+      "rev": 3308,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 5",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-10T20:39:59.323811",
+    "flow_id": 53921927,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "8.42.77.171",
+    "src_port": 43372,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403370,
+      "rev": 2417,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 36",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T11:01:46.105442",
+    "flow_id": 55782654,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "37.49.231.125",
+    "src_port": 30380,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 23,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403472,
+      "rev": 4214,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 87",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T02:20:53.970541",
+    "flow_id": 43775864,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "61.219.11.151",
+    "src_port": 60061,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 3389,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403477,
+      "rev": 3653,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP UDP group 89",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T19:05:46.076908",
+    "flow_id": 52460863,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "92.63.194.33",
+    "src_port": 15480,
+    "dest_ip": "138.68.3.71",
+    "dest_port": 80,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403334,
+      "rev": 50,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 18",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T00:22:54.756826",
+    "flow_id": 46149444,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "82.202.209.155",
+    "src_port": 59940,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 8080,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403410,
+      "rev": 1290,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 56",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-11T17:36:45.704805",
+    "flow_id": 40111203,
+    "in_iface": "eth0",
+    "event_type": "alert",
+    "src_ip": "92.53.76.213",
+    "src_port": 37354,
+    "dest_ip": "1.1.1.1",
+    "dest_port": 445,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2403452,
+      "rev": 35,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 77",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  }
+]
