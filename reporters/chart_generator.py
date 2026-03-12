@@ -3,7 +3,6 @@
 Создает графики распределения CVSS, топ индикаторов и структуру алертов.
 Использует matplotlib и seaborn для профессионального вида.
 """
-import os
 from pathlib import Path
 from typing import List, Dict, Any, Optional
 from datetime import datetime
@@ -16,7 +15,7 @@ import numpy as np
 
 from reporters.base import BaseReporter
 from models.alert import Alert
-from models.event import VulnerabilityEvent, ThreatIntelEvent
+from models.event import VulnerabilityEvent
 from utils.logger import logger
 
 
@@ -131,14 +130,23 @@ class ChartGenerator(BaseReporter):
         for alert in alerts:
             # Проверяем, есть ли raw_data с cvss
             if alert.raw_data and 'cvss' in alert.raw_data:
-                scores.append(float(alert.raw_data['cvss']))
+                try:
+                    scores.append(float(alert.raw_data['cvss']))
+                except (ValueError, TypeError):
+                    self.logger.debug(f"Не удалось распарсить CVSS: {alert.raw_data.get('cvss')}")
+                    continue
+                    
             # Также проверяем, если alert пришел из VulnerabilityEvent
             elif alert.source == 'vulners' and alert.raw_data:
                 # Может быть вложенная структура
                 if isinstance(alert.raw_data, dict):
                     cvss = alert.raw_data.get('cvss_score') or alert.raw_data.get('cvss')
                     if cvss:
-                        scores.append(float(cvss))
+                        try:
+                            scores.append(float(cvss))
+                        except (ValueError, TypeError):
+                            self.logger.debug(f"Не удалось распарсить CVSS из VulnerabilityEvent: {cvss}")
+                            continue
         
         self.logger.debug(f"Извлечено CVSS баллов: {len(scores)}")
         return scores
@@ -146,6 +154,7 @@ class ChartGenerator(BaseReporter):
     def _extract_top_indicators(self, alerts: List[Alert], top_n: int = 5) -> pd.DataFrame:
         """
         Извлекает топ-N индикаторов (IP/домены) по частоте появления.
+        Использует total_count из raw_data для агрегированных алертов.
         
         Args:
             alerts: Список алертов
@@ -154,20 +163,49 @@ class ChartGenerator(BaseReporter):
         Returns:
             DataFrame с колонками indicator и count
         """
-        # Считаем частоту индикаторов
-        indicator_counter = Counter()
+        # Словарь для подсчета
+        counter = {}
         
         for alert in alerts:
-            if alert.indicator and alert.indicator != 'unknown':
-                indicator_counter[alert.indicator] += 1
+            if not alert.indicator or alert.indicator == 'unknown':
+                continue
+            
+            indicator = alert.indicator
+            
+            # Проверяем наличие total_count в raw_data
+            if alert.raw_data and isinstance(alert.raw_data, dict):
+                # Используем total_count если есть
+                total = alert.raw_data.get('total_count')
+                if total is not None:
+                    counter[indicator] = counter.get(indicator, 0) + total
+                    self.logger.debug(f"Агрегированный {indicator}: +{total}")
+                    continue
+                
+                # Также проверяем total_alerts (на всякий случай)
+                total = alert.raw_data.get('total_alerts')
+                if total is not None:
+                    counter[indicator] = counter.get(indicator, 0) + total
+                    self.logger.debug(f"Агрегированный {indicator} (total_alerts): +{total}")
+                    continue
+            
+            # Обычный алерт
+            counter[indicator] = counter.get(indicator, 0) + 1
         
-        # Берем топ-N
-        top_indicators = indicator_counter.most_common(top_n)
-        
-        if not top_indicators:
+        if not counter:
+            self.logger.warning("Нет данных для построения графика")
             return pd.DataFrame()
         
-        df = pd.DataFrame(top_indicators, columns=['indicator', 'count'])
+        # Сортируем и берем топ-N
+        sorted_items = sorted(counter.items(), key=lambda x: x[1], reverse=True)[:top_n]
+        
+        # Логируем для отладки
+        self.logger.info("=" * 60)
+        self.logger.info("ДАННЫЕ ДЛЯ ГРАФИКА ТОП-5:")
+        for indicator, count in sorted_items:
+            self.logger.info(f"  {indicator}: {count} алертов")
+        self.logger.info("=" * 60)
+        
+        df = pd.DataFrame(sorted_items, columns=['indicator', 'count'])
         return df
     
     def _extract_severity_distribution(self, alerts: List[Alert]) -> pd.DataFrame:
@@ -273,7 +311,7 @@ class ChartGenerator(BaseReporter):
     
     def generate_top_indicators_chart(self, alerts: List[Alert], output_dir: str) -> Optional[str]:
         """
-        Генерирует bar chart топ-5 подозрительных индикаторов.
+        Генерирует bar chart топ-5 подозрительных индикаторов с целыми числами на оси X.
         
         Args:
             alerts: Список алертов
@@ -292,10 +330,18 @@ class ChartGenerator(BaseReporter):
         filename = output_path / f"top_indicators_{self._get_timestamp()}.png"
         
         try:
+            from matplotlib.ticker import MaxNLocator
+            
             # Создаем фигуру
             fig, ax = plt.subplots(figsize=self.FIGURE_SIZE)
             
-            # Строим горизонтальный bar chart для лучшей читаемости длинных имен
+            # Убеждаемся, что count - целые числа
+            df['count'] = df['count'].astype(int)
+            
+            # Логируем данные для отладки
+            self.logger.info(f"Данные для графика: {list(zip(df['indicator'], df['count']))}")
+            
+            # Строим горизонтальный bar chart
             colors = sns.color_palette("husl", len(df))
             bars = ax.barh(df['indicator'], df['count'], color=colors, alpha=0.8)
             
@@ -303,15 +349,24 @@ class ChartGenerator(BaseReporter):
             for bar in bars:
                 width = bar.get_width()
                 ax.text(
-                    width + 0.1, bar.get_y() + bar.get_height()/2,
+                    width + max(1, max(df['count'])*0.02), 
+                    bar.get_y() + bar.get_height()/2,
                     f'{int(width)}',
-                    ha='left', va='center', color=self.text_color, fontweight='bold'
+                    ha='left', va='center', 
+                    color=self.text_color, 
+                    fontweight='bold',
+                    fontsize=11
                 )
             
             # Настройки осей
             ax.set_xlabel('Number of Alerts', fontsize=12, color=self.text_color)
             ax.set_ylabel('Indicator', fontsize=12, color=self.text_color)
             ax.set_title('Top 5 Suspicious Indicators', fontsize=self.TITLE_FONT_SIZE, color=self.text_color)
+            
+            # Используем MaxNLocator для целых чисел на оси X
+            ax.xaxis.set_major_locator(MaxNLocator(integer=True))
+            
+            # Сетка
             ax.grid(True, alpha=0.3, color=self.grid_color, axis='x')
             
             # Инвертируем ось Y, чтобы самый частый был сверху
@@ -326,6 +381,8 @@ class ChartGenerator(BaseReporter):
             
         except Exception as e:
             self.logger.error(f"Ошибка при создании графика индикаторов: {e}")
+            import traceback
+            self.logger.error(traceback.format_exc())
             plt.close()
             return None
     
@@ -483,8 +540,6 @@ def create_reporter(theme: str = 'dark') -> ChartGenerator:
 if __name__ == "__main__":
     """
     Тестирование генератора графиков на синтетических данных.
-    
-    Генерирует тестовый набор алертов и создает все графики.
     """
     import sys
     import tempfile
